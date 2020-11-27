@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{# test  {% form_theme form 'bootstrap_4_layout.html.twig' %} #}
+
+{% block title %}Ajout nouveau produit{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un nouveau produit</h1>
+
+
+
+    {{ include('products/_form.html.twig') }}
+
+    <a href="{{ path('products_index') }}">Retour à la liste</a>
+{% endblock %}

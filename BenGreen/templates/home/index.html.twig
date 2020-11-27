@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Bienvenue</h1>
+            <p> Vous aimez la musique??? Nous aussi!</p>
+            <p>Dans le plus grand magasin de musique d'Europe, vous trouverez tout ce dont vous avez besoin en termes d'instruments de musique, d'équipements studio, d'éclairage et de sonorisation. Nous proposons toutes les plus grandes marques, des alternatives abordables, ainsi qu'une tonne d'autres services gratuits pour les musiciens.</p>
+
+            <h2>Nos catégories</h2>
+
+            <section class="rubriques">
+
+                <div class="card-columns">
+                    {% for rubrique in rubriques %}
+                        <div class="card bg-info text-white">
+                            <h3 class="card-header card-title"> {{ rubrique.rubriqueName }}</h3>
+                            <div class="card-body">
+                                <a href="{{ path('rubrique_show', {'id': rubrique.id}) }}" class="card-link text-white stretched-link">Consultez nos produits</a>
+                                <img class="img-responsive card-img-top" src="{{ asset('images/' ~ rubrique.rubriquePicture) }}" alt="rubrique produits" title="rubrique produits" width="100%">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <img class="img-responsive" src="{{ asset('images/bannierecentre.png') }}" alt="services" title="services" width="100%">
+            <h2>Nos partenaires</h2>
+            <img class="img-responsive" src="{{ asset('images/partenaires.png') }}" alt="services" title="services" width="100%">
+
+        </div>
+    </div>
+
+{% endblock %}

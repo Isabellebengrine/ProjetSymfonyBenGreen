@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# définir une route pour la déconnexion:
+logout:
+  path: /logout

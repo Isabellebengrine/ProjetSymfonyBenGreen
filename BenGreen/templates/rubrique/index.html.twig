@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Nos sous-catégories, dans la catégorie {{ rubrique.rubriqueName }} : </h2>
+
+            <section class="sousrubriques">
+
+                <div class="card-columns">
+                     {% for sousrubrique in sousrubriques %}
+                        <div class="card bg-info text-white">
+                            <h3 class="card-header card-title"> {{ sousrubrique.rubriqueName }}</h3>
+                            <div class="card-body">
+                                <a href="#" class="card-link text-white stretched-link">Consultez nos produits</a>
+                                <img class="img-responsive card-img-top" src="{{ sousrubrique.rubriquePicture }}" alt="rubrique produits" title="rubrique produits" width="100%">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <img class="img-responsive" src="{{ asset('images/bannierecentre.png') }}" alt="services" title="services" width="100%">
+            <h2>Nos partenaires</h2>
+            <img class="img-responsive" src="{{ asset('images/partenaires.png') }}" alt="services" title="services" width="100%">
+
+        </div>
+    </div>
+{% endblock %}
