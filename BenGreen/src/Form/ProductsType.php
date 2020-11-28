@@ -4,7 +4,11 @@ namespace App\Form;
 
 use App\Entity\Products;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,7 +33,7 @@ class ProductsType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('productsDescription', TextType::class, [
+            ->add('productsDescription', TextareaType::class, [
                 'label' => 'Description',
                 //'help' => 'Indiquez ici la description du produit',
                 'attr' => [
@@ -42,9 +46,8 @@ class ProductsType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('productsStock', TextType::class, [
+            ->add('productsStock', NumberType::class, [
                 'label' => 'Quantité en stock',
-                //'help' => 'Indiquez ici le nom du produit',
                 'attr' => [
                     'placeholder' => 'Stock',
                 ],
@@ -58,19 +61,11 @@ class ProductsType extends AbstractType
 
             ->add('productsPicture')
 
-            ->add('productsStatus', TextType::class, [
-                'label' => 'Statut',
-                'attr' => [
-                    'placeholder' => 'Choisir 0 ou 1',
-                ],
-                'constraints' => [
-                    new Regex([
-                        'pattern' => '/^[0-1]{1}$/',
-                        'message' => 'Caractère(s) non valide(s)'
-                    ]),
-                ]
+            ->add('productsStatus', CheckboxType::class, [
+                'label' => 'Statut: Actif?',
+                'required' => false,
             ])
-            ->add('productsPrice', TextType::class, [
+            ->add('productsPrice', MoneyType::class, [
                 'label' => 'Prix',
                 'attr' => [
                     'placeholder' => 'Prix en euros',

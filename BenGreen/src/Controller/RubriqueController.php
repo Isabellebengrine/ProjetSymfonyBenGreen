@@ -29,6 +29,5 @@ class RubriqueController extends AbstractController
             'rubrique' => $rubrique,
             'sousrubriques' => $sousrubriques
         ]);
-
     }
 }

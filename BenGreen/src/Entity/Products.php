@@ -6,6 +6,7 @@ use App\Repository\ProductsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
@@ -21,11 +22,13 @@ class Products
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Length (min=4, max=50)
      */
     private $productsName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length (min=4, max=255)
      */
     private $productsDescription;
 

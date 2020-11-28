@@ -1,36 +1,38 @@
 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 <div class="row">
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-4">
+        {# on pourrait mettre ici placeholder:
+         form_row(form.productsName, {'attr': {'placeholder': "Nom du produit"}})}} par exemple : #}
         {{ form_row(form.productsName) }}
     </div>
-    <div class="col-12 col-sm-6">
-        {{ form_row(form.rubrique) }}
-    </div>
-
-</div>
-<div class="row">
     <div class="col-12 col-sm-4">
-        {{ form_row(form.productsDescription) }}
+        {{ form_row(form.rubrique) }}
     </div>
     <div class="col-12 col-sm-4">
         {{ form_row(form.productsPrice) }}
     </div>
+
+</div>
+<div class="row">
+    <div class="col-12 col-sm-8">
+        {{ form_row(form.productsDescription) }}
+    </div>
+
     <div class="col-12 col-sm-4">
         {{ form_row(form.productsStatus) }}
     </div>
 </div>
 <div class="row">
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-2">
         {{ form_row(form.productsStock) }}
     </div>
     <div class="col-12 col-sm-6">
         {{ form_row(form.productsPicture) }}
     </div>
+    <div class="col-12 col-sm-4">
+        <button class="btn btn-info">{{ button_label|default('Sauvegarder') }}</button>
+    </div>
 </div>
 
 
-   {# test {{ form_widget(form) }} #}
-
-
-    <button class="btn-info">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

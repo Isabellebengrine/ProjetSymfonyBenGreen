@@ -5,7 +5,7 @@
 {% block body %}
     <div class="row">
         <div class="col-sm-12">
-            <h2>Nos sous-catégories, dans la catégorie {{ rubrique.rubriqueName }} : </h2>
+            <h2 class="my-5">Catégorie {{ rubrique.rubriqueName }} : </h2>
 
             <section class="sousrubriques">
 
@@ -15,7 +15,7 @@
                             <h3 class="card-header card-title"> {{ sousrubrique.rubriqueName }}</h3>
                             <div class="card-body">
                                 <a href="#" class="card-link text-white stretched-link">Consultez nos produits</a>
-                                <img class="img-responsive card-img-top" src="{{ sousrubrique.rubriquePicture }}" alt="rubrique produits" title="rubrique produits" width="100%">
+                                <img class="img-responsive card-img-top" src="{{ asset('images/' ~ sousrubrique.rubriquePicture) }}" alt="rubrique produits" title="rubrique produits" width="100%">
                             </div>
                         </div>
                     {% endfor %}
