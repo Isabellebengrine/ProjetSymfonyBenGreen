@@ -55,15 +55,15 @@ class UserController extends AbstractController
             $entityManager->flush();
 
             // do anything else you need here, like send an email
-
+/*
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,
                 $request,
                 $authenticator,
                 'main' // firewall name in security.yaml
             );
-
-            //return $this->redirectToRoute('login');
+*/
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('user/new.html.twig', [
@@ -87,6 +87,9 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user): Response
     {
+        //pour autoriser seulmt si user edits his own info not anyother user's info :
+        $this->denyAccessUnlessGranted('edit', $user, 'non non non ... action non autorisée!');
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 

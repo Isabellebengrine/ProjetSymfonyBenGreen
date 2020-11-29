@@ -39,10 +39,10 @@ class UserType extends AbstractType
                 ]
             ])
 
-            ->add('confirm_password', PasswordType::class, [
+    /*        ->add('confirm_password', PasswordType::class, [
                 'label' => 'Répétez votre mot de passe'
             ])
-
+*/
             ->add('role', HiddenType::class, [
                 'attr' => [
                     'value' => 'client',

@@ -33,19 +33,26 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères")
-     * @Assert\EqualTo(propertyPath="confirmPassword", message="Vous n'avez pas tapé le même mot de passe")
      */
     private $password;
 
-    /** if we want to ask to repeat password
-     * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapé le même mot de passe")
-     */
+    ///** if we want to ask to repeat password
+    /// add in password property :
+    /// //* @Assert\EqualTo(propertyPath="confirmPassword", message="Vous n'avez pas tapé le même mot de passe")
+    //   and here :
+    // * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapé le même mot de passe")
+    // */
     //private $confirmPassword;
 
     /**
      * @ORM\Column(type="string", length=255, options={"default" : "client"})
      */
     private $role;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
 
     public function getId(): ?int
     {
@@ -75,7 +82,7 @@ class User implements UserInterface
 
         return $this;
     }
-
+/*
     public function getConfirmPassword(): ?string
     {
         return $this->confirmPassword;
@@ -87,7 +94,7 @@ class User implements UserInterface
 
         return $this;
     }
-
+*/
     public function getRole(): ?string
     {
         return $this->role;
@@ -100,13 +107,17 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles()
+    public function getRoles(): array
     {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+       // $roles[] = 'ROLE_USER';
+
         if ($this->role == "administrateur")
             return ["ROLE_ADMIN"];
         if ($this->role == "client")
             return ["ROLE_USER"];
-        return [];
+        return array_unique($roles);
     }
 
     public function getSalt()
