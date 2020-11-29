@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Inscription</h1>
+
+    {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'}) }}
+    {#     {{ form_row(registrationForm.confirm_password) }} #}
+        {{ form_row(registrationForm.agreeTerms, {'label': 'Acceptez nos termes et conditions'}) }}
+
+        <button type="submit" class="btn btn-info">Inscription !</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

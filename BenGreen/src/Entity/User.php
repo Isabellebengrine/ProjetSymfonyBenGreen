@@ -33,15 +33,14 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères")
-     * @Assert\EqualTo(propertyPath="confirmPassword", message="")
+     * @Assert\EqualTo(propertyPath="confirmPassword", message="Vous n'avez pas tapé le même mot de passe")
      */
     private $password;
 
-    /**
+    /** if we want to ask to repeat password
      * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapé le même mot de passe")
      */
-
-    private $confirmPassword;
+    //private $confirmPassword;
 
     /**
      * @ORM\Column(type="string", length=255, options={"default" : "client"})
