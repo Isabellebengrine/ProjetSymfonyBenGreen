@@ -80,4 +80,10 @@ class Supplierstype
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->supplierstypeName;
+    }
+
 }
