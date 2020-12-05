@@ -7,12 +7,13 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="/">
-                <img class="img-responsive mx-4" src="{{ asset('images/nomusicmini.jpg') }}" alt="no music no life" width="20%">
-                <span class="mx-4">BenGreen, le meilleur de la musique pour vous</span>
+                <img class="img-responsive mx-4" src="{{ asset('images/nomusicmini.jpg') }}" alt="no music no life" width="40%">
+                <span class="mx-4 text-info">BenGreen</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="btn btn-info navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
@@ -41,6 +42,8 @@
                 </ul>
             </div>
         </nav>
+
+
         <div class="container">
 
             {% for message in app.flashes('success') %}
@@ -51,7 +54,16 @@
 
             {% block body %}{% endblock %}
 
+            <footer>
+                <img alt="footer" title="footer" class="img-responsive" src="{{ asset('images/footerSIMPLE.png') }}"  width="100%">
+            </footer>
+
+
         </div>
         {% block javascripts %}{% endblock %}
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
     </body>
 </html>
