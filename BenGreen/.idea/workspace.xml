@@ -21,8 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CatalogueController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProductsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RubriqueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RubriqueRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/catalogue/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/catalogue/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/rubrique/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rubrique/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,6 +232,8 @@
       <workItem from="1606679604560" duration="3600000" />
       <workItem from="1606684387500" duration="1753000" />
       <workItem from="1607191535108" duration="3906000" />
+      <workItem from="1607276072263" duration="5710000" />
+      <workItem from="1607289238487" duration="624000" />
     </task>
     <servers />
   </component>
@@ -257,10 +265,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="470" y="83" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1606063616829" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606065884679">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607278214212">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1606065884679" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1607278214212" />
     <state x="592" y="218" key="FileChooserDialogImpl" timestamp="1605281621333">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

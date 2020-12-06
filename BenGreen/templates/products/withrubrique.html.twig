@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="my-5">Catégorie {{ rubrique.rubriqueName }} : </h2>
+
+            <section class="produits-par-rubrique">
+
+                <div class="card-columns">
+                    {% for product in products %}
+                        <div class="card bg-info text-white">
+                            <h3 class="card-header card-title"> {{ product.productsName }}</h3>
+                            <div class="card-body">
+                                <img class="img-responsive card-img-top" src="{{ product.productsPicture }}" alt="image du produit" title="Produit" width="100%">
+                            </div>
+                            <div class="card-footer">
+                                <a href="{{ path('products_show', {'id': product.id}) }}" class="card-link text-white stretched-link">Détails</a>
+                            </div>
+                        </div>
+                    {% else %}
+                </div>
+                    <div class="text-info">
+                        <p>Il n'y a pas encore de produits dans cette catégorie, mais n'hésitez pas à contacter notre service client pour leur expliquer ce que vous recherchez, et nous tâcherons de répondre à vos besoins au mieux!!!</p>
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+{% endblock %}

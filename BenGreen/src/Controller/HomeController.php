@@ -19,7 +19,7 @@ class HomeController extends AbstractController {
     {
         $repo = $this->getDoctrine()->getRepository(Rubrique::class);
 
-        $rubriques = $repo->findIdLessThan(9);
+        $rubriques = $repo->findRubriqueWithNoParent();
 
         // affichage de la page d'accueil: cards avec rubriques principales:
         return $this->render('home/index.html.twig', [

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Products;
+use App\Entity\Rubrique;
 use App\Form\ProductsType;
 use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,6 +28,25 @@ class ProductsController extends AbstractController
             'products' => $productsRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/rubrique/{id}", name="productsbyrubrique_show", methods={"GET"}, requirements={"id"="\d+"}))
+     */
+    public function findProductsWithSousRubrique(ProductsRepository $productsRepository, int $id): Response
+    {
+        $rubrique = $this->getDoctrine()->getRepository(Rubrique::class)->find($id);
+
+        $rubriqueid = $rubrique->getId();
+        $products = $productsRepository->findWithRubrique($rubriqueid);
+
+        // affichage : cards avec products de la rubrique choisie:
+        return $this->render('products/withrubrique.html.twig', [
+            'controller_name' => 'ProductsController',
+            'rubrique' => $rubrique,
+            'products' => $products
+        ]);
+    }
+
 
     /**
      * @Route("/new", name="products_new", methods={"GET","POST"})

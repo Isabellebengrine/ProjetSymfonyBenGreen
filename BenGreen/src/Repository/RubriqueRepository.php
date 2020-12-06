@@ -39,21 +39,24 @@ class RubriqueRepository extends ServiceEntityRepository
     /**
      * @return Rubrique[]
      */
-    public function findIdLessThan(int $id): array
+    public function findRubriqueWithNoParent(): array
     {
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
             'SELECT r
             FROM App\Entity\Rubrique r
-            WHERE r.id < :id
+            WHERE r.parent is null
             ORDER BY r.rubriqueName ASC'
-        )->setParameter('id', $id);
+        );
 
-        // returns an array of Rurbique objects that represent the first 8 main product rubriques :
+        // returns an array of Rubrique objects that represent the main product rubriques :
         return $query->getResult();
     }
 
+    /**
+     * This method is called to find product categories with id of their parent category
+    */
     public function findWithParent(int $parent): array
     {
         $entityManager = $this->getEntityManager();

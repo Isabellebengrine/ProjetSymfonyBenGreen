@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos produits{% endblock %}
+{% block title %}Catégories de produits{% endblock %}
 
 {% block body %}
     <div class="row">
@@ -14,7 +14,7 @@
                         <div class="card bg-info text-white">
                             <h3 class="card-header card-title"> {{ sousrubrique.rubriqueName }}</h3>
                             <div class="card-body">
-                                <a href="#" class="card-link text-white stretched-link">Consultez nos produits</a>
+                                <a href="{{ path('productsbyrubrique_show', {'id': sousrubrique.id}) }}" class="card-link text-white stretched-link">Consultez nos produits</a>
                                 <img class="img-responsive card-img-top" src="{{ asset('images/' ~ sousrubrique.rubriquePicture) }}" alt="rubrique produits" title="rubrique produits" width="100%">
                             </div>
                         </div>
