@@ -5,6 +5,7 @@
 {% block body %}
     <div class="row">
         <div class="col-sm-12">
+
             <h2 class="my-5">Catégorie {{ rubrique.rubriqueName }} : </h2>
 
             <section class="produits-par-rubrique">
@@ -16,8 +17,9 @@
                             <div class="card-body">
                                 <img class="img-responsive card-img-top" src="{{ product.productsPicture }}" alt="image du produit" title="Produit" width="100%">
                             </div>
-                            <div class="card-footer">
-                                <a href="{{ path('products_show', {'id': product.id}) }}" class="card-link text-white stretched-link">Détails</a>
+                            <div class="card-footer d-flex flex-row justify-content-between">
+                                <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button">Détails</a>
+                                <a href="#" class="btn btn-dark card-link text-white" role="button">Acheter</a>
                             </div>
                         </div>
                     {% else %}
