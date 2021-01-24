@@ -2,9 +2,12 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Products;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @method Products|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,9 +17,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductsRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Products::class);
+        $this->paginator = $paginator;
     }
 
     /**
@@ -37,7 +41,49 @@ class ProductsRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+    /**
+     * Method returns products from a search
+     * @return PaginationInterface
+     */
+    public function findSearch(SearchData $search): PaginationInterface
+    {
+        $query = $this
+            ->createQueryBuilder('p')   //we are getting products
+            ->select('r', 'p')
+            ->join('p.rubrique', 'r');
 
+        if(!empty($search->q)){
+            $query = $query
+                ->andWhere('p.productsName LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        if(!empty($search->min)){
+            $query = $query
+                ->andWhere('p.productsPrice >= :min')
+                ->setParameter('min', $search->min);
+        }
+
+        if(!empty($search->max)){
+            $query = $query
+                ->andWhere('p.productsPrice <= :max')
+                ->setParameter('max', $search->max);
+        }
+
+        //pb to solve 24/01/21: search for rubriques does not work :
+        if(!empty($search->rubriques)){
+            $query = $query
+                ->andWhere('r.id IN (:rubriques)')
+                ->setParameter('rubriques', $search->rubriques);
+        }
+
+        $query = $query->getQuery();
+        return $this->paginator->paginate(
+            $query,
+            $search->page,
+            9
+        );
+    }
 
 
     // /**

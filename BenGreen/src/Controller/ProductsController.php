@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
 use App\Entity\Products;
 use App\Entity\Rubrique;
 use App\Form\ProductsType;
+use App\Form\SearchForm;
 use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -22,10 +24,18 @@ class ProductsController extends AbstractController
      * @param ProductsRepository $productsRepository
      * @return Response
      */
-    public function index(ProductsRepository $productsRepository): Response
+    public function index(ProductsRepository $repository, Request $request): Response
     {
+        $data = new SearchData();
+        $data->page = $request->get('page', 1);
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+
+        $products = $repository->findSearch($data);
         return $this->render('products/index.html.twig', [
-            'products' => $productsRepository->findAll(),
+            'products' => $products,
+            //now that $form is created, send it to view :
+            'form' => $form->createView()
         ]);
     }
 

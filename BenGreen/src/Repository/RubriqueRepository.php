@@ -37,6 +37,7 @@ class RubriqueRepository extends ServiceEntityRepository
     */
 
     /**
+     * method called to find the main product categories
      * @return Rubrique[]
      */
     public function findRubriqueWithNoParent(): array
@@ -56,6 +57,7 @@ class RubriqueRepository extends ServiceEntityRepository
 
     /**
      * This method is called to find product categories with id of their parent category
+     * @return Rubrique[]
     */
     public function findWithParent(int $parent): array
     {

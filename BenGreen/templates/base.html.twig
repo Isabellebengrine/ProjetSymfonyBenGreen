@@ -4,7 +4,12 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% block stylesheets %}{% endblock %}
+
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_script_tags('app') | replace({'src=': 'defer src='}) | raw }}
+
     </head>
     <body>
 
