@@ -12,11 +12,14 @@
     </div>
 
     <div class="row">
-        {# to show search form : #}
+        {# div to show search form : #}
         <div class="col-md-3">
-            {% include 'products/_filter.html.twig' with {form: form} only %}
+            {% include 'products/_filter.html.twig' with {form: form, min: min, max: max} only %}
         </div>
         <div class="col-md-9">
+            <div class="d-flex justify-content-end mb-2">
+                {{ knp_pagination_sortable(products, 'Trier par Prix', 'p.productsPrice') }}
+            </div>
             <div class="grid">
                 {% for product in products %}
                     {% include 'products/_card.html.twig' with {product: product} only%}

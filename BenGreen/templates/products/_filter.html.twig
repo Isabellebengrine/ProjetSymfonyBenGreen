@@ -12,7 +12,9 @@
             {{ form_row(form.max) }}
         </div>
     </div>
-    <div id="price-slider"></div>
+    <div id="price-slider" data-min="{{ min }}" data-max="{{ max }}" style="margin-bottom: 3rem;">
+
+    </div>
 
     <button type="submit" class="btn btn-info w-100">Filtrer</button>
 {{ form_end(form) }}

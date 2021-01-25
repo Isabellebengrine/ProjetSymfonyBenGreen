@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Data\SearchData;
 use App\Entity\Products;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -47,6 +48,30 @@ class ProductsRepository extends ServiceEntityRepository
      */
     public function findSearch(SearchData $search): PaginationInterface
     {
+        $query = $this->getSearchQuery($search)->getQuery();
+        return $this->paginator->paginate(
+            $query,
+            $search->page,
+            9
+        );
+    }
+
+    /**
+     * Returns min and max values entered in a search
+     * @param SearchData $search
+     * @return int[]
+     */
+    public function findMinMax(SearchData $search): array
+    {
+         $results = $this->getSearchQuery($search, true)
+            ->select('MIN(p.productsPrice) as min', 'MAX(p.productsPrice) as max')
+            ->getQuery()
+            ->getScalarResult();//returns a one line array with min and max keys and corresponding values
+        return [(int)$results[0]['min'], (int)$results[0]['max']];
+    }
+
+    private function getSearchQuery(SearchData $search, $ignorePrice = false): QueryBuilder
+    {
         $query = $this
             ->createQueryBuilder('p')   //we are getting products
             ->select('r', 'p')
@@ -58,33 +83,26 @@ class ProductsRepository extends ServiceEntityRepository
                 ->setParameter('q', "%{$search->q}%");
         }
 
-        if(!empty($search->min)){
+        if(!empty($search->min) && $ignorePrice === false){
             $query = $query
                 ->andWhere('p.productsPrice >= :min')
                 ->setParameter('min', $search->min);
         }
 
-        if(!empty($search->max)){
+        if(!empty($search->max) && $ignorePrice === false){
             $query = $query
                 ->andWhere('p.productsPrice <= :max')
                 ->setParameter('max', $search->max);
         }
 
-        //pb to solve 24/01/21: search for rubriques does not work :
         if(!empty($search->rubriques)){
             $query = $query
-                ->andWhere('r.id IN (:rubriques)')
+                ->andWhere('r.parent IN (:rubriques)')
                 ->setParameter('rubriques', $search->rubriques);
         }
 
-        $query = $query->getQuery();
-        return $this->paginator->paginate(
-            $query,
-            $search->page,
-            9
-        );
+        return $query;
     }
-
 
     // /**
     //  * @return Products[] Returns an array of Products objects
