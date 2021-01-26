@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Bienvenue chez BenGreen Musique!{% endblock %}</title>
+        <title>{% block title %}BenGreen Musique!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% block stylesheets %}{% endblock %}
@@ -12,42 +12,46 @@
 
     </head>
     <body>
-
+    <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">
-                <img class="img-responsive mx-4" src="{{ asset('images/nomusicmini.jpg') }}" alt="no music no life" width="40%">
-                <span class="mx-4 text-info">BenGreen</span>
-            </a>
-            <button class="btn btn-info navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('products_index') }}">Catalogue
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('products_new') }}">Creer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
-                    </li>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img class="img-responsive" src="{{ asset('images/nomusicmini.jpg') }}" alt="no music no life" width="20%">
+                    <a class="navbar-brand text-info" href="/">BenGreen</a>
+                    <button class="navbar-toggler btn-info float-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="nav navbar-nav list-inline">
+                        <li class="nav-item list-inline-item">
+                            <a class="nav-link" href="{{ path('products_index') }}">Catalogue
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item list-inline-item">
+                            <a class="nav-link" href="{{ path('products_new') }}">Creer</a>
+                        </li>
+                        <li class="nav-item list-inline-item">
+                            <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+                        </li>
 
-                    {% if not app.user %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('login') }}">Connexion</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a href="{{ path('logout') }}" class="nav-link">Déconnexion</a>
-                        </li>
-                    {% endif %}
-                </ul>
+                        {% if not app.user %}
+                            <li class="nav-item list-inline-item">
+                                <a class="nav-link" href="{{ path('login') }}">Connexion</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ path('logout') }}" class="nav-link">Déconnexion</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
             </div>
         </nav>
 
+    </header>
 
         <div class="container">
 

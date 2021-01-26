@@ -3,31 +3,33 @@
 {% block title %}Tous nos produits{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-sm-12">
-            <h1 class="text-center">Catalogue de nos produits</h1>
-            {# à faire : mettre lien dans if app.user == admin pour ne l'afficher que pour admin : #}
- {#            <a href="{{ path('products_new') }}">Ajouter un nouveau produit</a>#}
-        </div>
-    </div>
-
-    <div class="row">
-        {# div to show search form : #}
-        <div class="col-md-3">
-            {% include 'products/_filter.html.twig' with {form: form, min: min, max: max} only %}
-        </div>
-        <div class="col-md-9">
-            <div class="d-flex justify-content-end mb-2">
-                {{ knp_pagination_sortable(products, 'Trier par Prix', 'p.productsPrice') }}
+    <div class="container js-filter">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center">Catalogue de nos produits</h1>
+                {# à faire : mettre lien dans if app.user == admin pour ne l'afficher que pour admin : #}
+     {#            <a href="{{ path('products_new') }}">Ajouter un nouveau produit</a>#}
             </div>
-            <div class="grid">
-                {% for product in products %}
-                    {% include 'products/_card.html.twig' with {product: product} only%}
+        </div>
 
-                {% endfor %}
+        <div class="row">
+            {# div to show search form : #}
+            <div class="col-md-3">
+                {% include 'products/_filter.html.twig' with {form: form, min: min, max: max} only %}
             </div>
-            <div class="mt-4">
-                {{ knp_pagination_render(products) }}
+            <div class="col-md-9">
+                <div class="d-flex justify-content-end mb-2">
+                    {{ knp_pagination_sortable(products, 'Trier par Prix', 'p.productsPrice') }}
+                </div>
+                <div class="grid">
+                    {% for product in products %}
+                        {% include 'products/_card.html.twig' with {product: product} only%}
+
+                    {% endfor %}
+                </div>
+                <div class="mt-4">
+                    {{ knp_pagination_render(products) }}
+                </div>
             </div>
         </div>
     </div>
