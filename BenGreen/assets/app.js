@@ -6,10 +6,10 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-//import './styles/app.css';
+import './styles/app.css';
 
 // start the Stimulus application
-import './bootstrap';
+//import './bootstrap';
 
 import noUiSlider from 'nouislider'
 import 'nouislider/distribute/nouislider.css'
@@ -32,13 +32,15 @@ if(slider){
     });
 
     range.on('slide', function (values, handle) {
+        //if we move the left cursor it means the min value is changing :
         if(handle === 0){
             min.value = Math.round(values[0])
         }
+        //same for right cursor and max value :
         if(handle === 1){
             max.value = Math.round(values[1])
         }
-        console.log(values, handle);
+        //console.log(values, handle);//to check how values change
     })
 }
 

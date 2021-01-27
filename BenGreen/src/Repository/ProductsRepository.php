@@ -57,7 +57,8 @@ class ProductsRepository extends ServiceEntityRepository
     }
 
     /**
-     * Returns min and max values entered in a search
+     * Returns min and max price values entered in a search
+     * to use it in nouislider for price search
      * @param SearchData $search
      * @return int[]
      */

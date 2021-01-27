@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SearchForm extends AbstractType
 {
-    //to build form:
+    //to build form used in search on catalogue:
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -44,14 +44,14 @@ class SearchForm extends AbstractType
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Prix minimum'
+                    'placeholder' => 'Prix min'
                 ]
             ])
             ->add('max', NumberType::class, [
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Prix maximum'
+                    'placeholder' => 'Prix max'
                 ]
             ])
         ;
@@ -68,7 +68,7 @@ class SearchForm extends AbstractType
 
     public function getBlockPrefix()
     {
-        //to remove the fault return of SearchData array:
+        //to remove the default return of SearchData array:
         return '';
     }
 

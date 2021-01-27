@@ -5,10 +5,13 @@
         <title>{% block title %}BenGreen Musique!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
 
-        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('app') }}{# to charge css #}
+            {# to charge js (used replace to make sure it is charged at the end )  #}
         {{ encore_entry_script_tags('app') | replace({'src=': 'defer src='}) | raw }}
+        {% endblock %}
+
 
     </head>
     <body>

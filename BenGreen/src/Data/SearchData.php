@@ -6,6 +6,8 @@ namespace App\Data;
 
 use App\Entity\Rubrique;
 
+//represents data from search on catalogue page :
+//enables us to know the type of data sent in a search :
 class SearchData
 {
     /**
