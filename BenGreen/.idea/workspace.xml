@@ -21,13 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/SearchData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SearchData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SearchForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProductsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/_filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/_filter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/search.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,6 +239,7 @@
       <workItem from="1611557106370" duration="11513000" />
       <workItem from="1611692181104" duration="5834000" />
       <workItem from="1611729251073" duration="4459000" />
+      <workItem from="1611902804664" duration="3753000" />
     </task>
     <servers />
   </component>
@@ -311,6 +308,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="537" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606492030946" />
+    <state x="825" y="234" width="633" height="372" key="XPathView.FindDialog.DIMENSION_SERVICE_KEY.SIMPLE" timestamp="1611904913577">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="825" y="234" width="633" height="372" key="XPathView.FindDialog.DIMENSION_SERVICE_KEY.SIMPLE/0.0.1536.824@0.0.1536.824" timestamp="1611904913577" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1604849476407">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -336,5 +337,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history>
+      <element expression="knp" />
+    </find-history>
   </component>
 </project>

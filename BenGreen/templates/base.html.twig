@@ -5,6 +5,8 @@
         <title>{% block title %}BenGreen Musique!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {# to add for font awesome icons : #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         {% block stylesheets %}
 
         {{ encore_entry_link_tags('app') }}{# to charge css #}
@@ -32,9 +34,12 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+
+                        {# à finir : réserver lien créer à admin du site : if not app.user_role == admin ...
                         <li class="nav-item list-inline-item">
                             <a class="nav-link" href="{{ path('products_new') }}">Creer</a>
                         </li>
+                        #}
                         <li class="nav-item list-inline-item">
                             <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
                         </li>
