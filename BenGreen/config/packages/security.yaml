@@ -42,5 +42,5 @@ security:
     # Pour restreindre l'accès à certaines routes selon le role, vous pouvez décommentter (ajouter / modifier) les lignes suivantes dans la clé acces_control :
 
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }
