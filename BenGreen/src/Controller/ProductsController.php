@@ -39,7 +39,6 @@ class ProductsController extends AbstractController
                 'content' => $this->renderView('products/_products.html.twig', ['products' => $products]),
                 'sorting' => $this->renderView('products/_sorting.html.twig', ['products' => $products]),
                 'pagination' => $this->renderView('products/_pagination.html.twig', ['products' => $products])
-
             ]);
         }
         return $this->render('products/index.html.twig', [

@@ -33,8 +33,9 @@ export default class Filter {
      */
     bindEvents(){
 
-        //for sorting choices :
+        //for sorting choices : we listen to click not on link but on sorting event itself :
         this.sorting.addEventListener('click', e => {
+            //to check if element where user clicked is a link :
             if (e.target.tagName === 'A') {
                 e.preventDefault()
                 //to get url and use it in loadUrl method:
@@ -52,7 +53,7 @@ export default class Filter {
 
         //for checkbox choices only you could specify 'input[type=checkbox]':
         this.form.querySelectorAll('input[type=checkbox]').forEach(input => {
-            input.addEventListener('change', this.loadForm.bind(this))
+            input.addEventListener('change', this.loadForm.bind(this)) //(to make sure this refers to the right element)
         })
     }
 
