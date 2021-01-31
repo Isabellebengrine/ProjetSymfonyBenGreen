@@ -35,7 +35,20 @@
                             </a>
                         </li>
 
-                        {# à finir : réserver lien créer à admin du site : if not app.user_role == admin ...
+                        {% if is_granted('ROLE_USER') %}
+                            <li class="nav-item {% if mainNavMember is defined %}active{% endif %}">
+                                <a class="nav-link" href="{{path('app_member_index')}}">Espace Membre </a>
+                            </li>
+                        {% endif %}
+
+                        {# 01/31 à finir :
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
+                                <a class="nav-link" href="{{path('app_admin_homepage_index')}}">Espace Admin</a>
+                            </li>
+                        {% endif %}
+
+                         réserver lien créer à admin du site : if not app.user_role == admin ...
                         <li class="nav-item list-inline-item">
                             <a class="nav-link" href="{{ path('products_new') }}">Creer</a>
                         </li>
