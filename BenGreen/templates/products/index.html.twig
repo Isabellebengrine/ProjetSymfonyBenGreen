@@ -14,20 +14,17 @@
 
         <div class="row">
             {# div to show search form : #}
-            <div class="col-md-3">
+            <div class="col-md-3">{# enlevé class js-filter-form et ajouté directment dans _filter.html.twig #}
                 {% include 'products/_filter.html.twig' with {form: form, min: min, max: max} only %}
             </div>
             <div class="col-md-9">
-                <div class="d-flex justify-content-end mb-2">
-                    {{ knp_pagination_sortable(products, 'Trier par Prix', 'p.productsPrice') }}
+                <div class="d-flex justify-content-end mb-2 js-filter-sorting">
+                    {% include 'products/_sorting.html.twig' %}
                 </div>
-                <div class="grid">
-                    {% for product in products %}
-                        {% include 'products/_card.html.twig' with {product: product} only%}
-
-                    {% endfor %}
+                <div class="grid js-filter-content">
+                    {% include 'products/_products.html.twig' %}
                 </div>
-                <div class="mt-4">
+                <div class="mt-4 js-filter-pagination">
                     {{ knp_pagination_render(products) }}
                 </div>
             </div>

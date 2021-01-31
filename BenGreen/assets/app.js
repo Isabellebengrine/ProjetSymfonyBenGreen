@@ -13,6 +13,9 @@ import './styles/app.css';
 
 import noUiSlider from 'nouislider'
 import 'nouislider/distribute/nouislider.css'
+import Filter from './modules/Filter'
+
+new Filter(document.querySelector('.js-filter'))
 
 const slider = document.getElementById('price-slider');
 //to use this only on pages where slider is used :
@@ -32,6 +35,8 @@ if(slider){
     });
 
     range.on('slide', function (values, handle) {
+        //console.log(values, handle);//to check how values change
+
         //if we move the left cursor it means the min value is changing :
         if(handle === 0){
             min.value = Math.round(values[0])
@@ -40,8 +45,13 @@ if(slider){
         if(handle === 1){
             max.value = Math.round(values[1])
         }
-        //console.log(values, handle);//to check how values change
     })
+
+    //to trigger an event when we finish moving the slider :
+    range.on('end', function (values, handle){
+        min.dispatchEvent(new Event('change'))
+    })
+
 }
 
 

@@ -10,6 +10,7 @@ use App\Form\SearchForm;
 use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,6 +33,15 @@ class ProductsController extends AbstractController
         $form->handleRequest($request);
         [$min, $max] = $repository->findMinMax($data);
         $products = $repository->findSearch($data);
+        //if the request is an ajax request (used to search in products list):
+        if ($request->get('ajax')){
+            return new JsonResponse([
+                'content' => $this->renderView('products/_products.html.twig', ['products' => $products]),
+                'sorting' => $this->renderView('products/_sorting.html.twig', ['products' => $products]),
+                'pagination' => $this->renderView('products/_pagination.html.twig', ['products' => $products])
+
+            ]);
+        }
         return $this->render('products/index.html.twig', [
             'products' => $products,
             //now that $form is created, send it to view :
