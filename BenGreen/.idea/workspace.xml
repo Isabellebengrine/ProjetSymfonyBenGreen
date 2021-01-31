@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/modules/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/modules/Filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/_filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/_filter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +246,7 @@
       <workItem from="1611923870884" duration="12951000" />
       <workItem from="1612019876447" duration="1243000" />
       <workItem from="1612078495967" duration="9440000" />
-      <workItem from="1612098127138" duration="2053000" />
+      <workItem from="1612098127138" duration="6852000" />
     </task>
     <servers />
   </component>

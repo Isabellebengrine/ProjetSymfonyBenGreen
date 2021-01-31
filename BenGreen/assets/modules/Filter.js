@@ -43,14 +43,17 @@ export default class Filter {
             }
         })
 
-        // this.pagination.addEventListener('click', e => {
-        //     if (e.target.tagName === 'A') {
-        //         e.preventDefault()
-        //         //to get url and use it in loadUrl method:
-        //         this.loadUrl(e.target.getAttribute('href'))
-        //     }
-        // })
+        this.pagination.addEventListener('click', e => {
+            if (e.target.tagName === 'A') {
+                e.preventDefault()
+                //to get url and use it in loadUrl method:
+                this.loadUrl(e.target.getAttribute('href'))
+            }
+        })
 
+        //nb pb 31/01/21 si je mets juste 'input' pour prendre en compte aussi les valeurs min et max
+        // avec range.on('end'...) voir app.js alors je perds slider et ajax donc laissé 'input[type=checkbox]'
+        //jusqu'à ce que je trouve why'
         //for checkbox choices only you could specify 'input[type=checkbox]':
         this.form.querySelectorAll('input[type=checkbox]').forEach(input => {
             input.addEventListener('change', this.loadForm.bind(this)) //(to make sure this refers to the right element)
@@ -73,10 +76,10 @@ export default class Filter {
 
     //to load url and make ajax treatment :
     async loadUrl(url){
-        //to avoid problem of navigator using cache of json format _product:
-        const ajaxUrl = url + '&ajax=1'
-
-        const response = await fetch(ajaxUrl, {
+        this.showLoader()
+        const params = new URLSearchParams(url.split('?')[1] || '')
+        params.set('ajax', 1)
+        const response = await fetch(url.split('?')[0] + '?' + params.toString(), {
             //add this headers so that our back-end framework knows we are doing ajax request:
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
@@ -87,21 +90,41 @@ export default class Filter {
         if(response.status >= 200 && response.status < 300){
             //here the list of products is received in data const in json format:
             const data = await response.json()
-            //to inject in our content and sorting the json content with this key
+            //to inject in our content, sorting, and pagination, the json content with this key
             this.content.innerHTML = data.content
             this.sorting.innerHTML = data.sorting
             this.pagination.innerHTML = data.pagination
-
+            params.delete('ajax')
             //to go back directly to previous page instead of previous search made on same page:
             //to go back to previous search instead, simply replace replaceState with pushState
-            history.replaceState({}, '', url)
+            history.replaceState({}, '', url.split('?')[0] + '?' + params.toString())
 
         } else {
             //see what to do in case of error on ajax request
             console.error(response)
         }
 
+        this.hideLoader()
     }
 
+    showLoader(){
+        this.form.classList.add('is-loading')
+        const loader = this.form.querySelector('.js-loading')
+        if(loader === null){
+            return
+        }
+        loader.setAttribute('aria-hidden', 'false')
+        loader.style.display = null
+    }
+
+    hideLoader() {
+        this.form.classList.remove('is-loading')
+        const loader = this.form.querySelector('.js-loading')
+        if(loader === null){
+            return
+        }
+        loader.setAttribute('aria-hidden', 'true')
+        loader.style.display = none
+    }
 
 }

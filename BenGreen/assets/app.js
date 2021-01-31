@@ -48,8 +48,13 @@ if(slider){
     })
 
     //to trigger an event when we finish moving the slider :
+    //(else, no event is called as we use js slider for min and max, and so we cannot use eventlistener for ajax)
     range.on('end', function (values, handle){
-        min.dispatchEvent(new Event('change'))
+        if (handle===0) {
+            min.dispatchEvent(new Event('change'))
+        } else {
+            max.dispatchEvent(new Event('change'))
+        }
     })
 
 }
