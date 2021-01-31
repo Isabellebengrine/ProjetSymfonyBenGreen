@@ -22,8 +22,11 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator): Response
     {
+        //to build the form :
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
+
+        //to handle the submit :
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -34,11 +37,17 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
+            //to make user active by default :
+            $user->setIsActive(true);
 
+            //to save the User :
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
+
+            // maybe set a "flash" success message for the user
+            $this->addFlash('success', 'Votre compte a bien été enregistré.');
 
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,
