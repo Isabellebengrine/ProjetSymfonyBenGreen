@@ -65,6 +65,11 @@ class Customers
      */
     private $deliveries;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="customer", cascade={"persist", "remove"})
+     */
+    private $user;
+
     public function __construct()
     {
         $this->totalorders = new ArrayCollection();
@@ -217,6 +222,24 @@ class Customers
             if ($delivery->getCustomers() === $this) {
                 $delivery->setCustomers(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newCustomer = null === $user ? null : $this;
+        if ($user->getCustomer() !== $newCustomer) {
+            $user->setCustomer($newCustomer);
         }
 
         return $this;

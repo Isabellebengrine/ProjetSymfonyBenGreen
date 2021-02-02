@@ -76,6 +76,11 @@ class User implements UserInterface, \Serializable
      */
     private $firstname;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Customers::class, inversedBy="user", cascade={"persist", "remove"})
+     */
+    private $customer;
+
     public function __construct() {
         $this->isActive = true;
         // may not be needed, see section on salt below
@@ -237,6 +242,18 @@ class User implements UserInterface, \Serializable
     public function setFirstname(?string $firstname): self
     {
         $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getCustomer(): ?Customers
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customers $customer): self
+    {
+        $this->customer = $customer;
 
         return $this;
     }

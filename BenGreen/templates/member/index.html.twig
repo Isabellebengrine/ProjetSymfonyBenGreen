@@ -3,8 +3,47 @@
 {% block title %}Espace Membre - Accueil{% endblock %}
 
 {% block body %}
-    <p>Bienvenue sur votre Espace Membre!</p>
+    <h1>Bienvenue sur votre Espace Membre!</h1>
     <p>Cet espace sécurisé vous permet de gérer en toute simplicité votre compte utilisateur, vos coordonnées, et consulter votre historique de commandes.</p>
+
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <p>Votre profil :</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 col-sm-3">
+            <p>Nom :</p>
+        </div>
+        <div class="col-4 col-sm-4">
+            {{ app.user.lastname }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-sm-3">
+            <p>Prénom :</p>
+        </div>
+        <div class="col-4 col-sm-4">
+            {{ app.user.firstname }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-sm-3">
+            <p>E-mail :</p>
+        </div>
+        <div class="col-4 col-sm-4">
+            {{ app.user.email }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-sm-6">
+            <a href="#" class="btn btn-info" role="button">Modifier le profil</a>
+        </div>
+        <div class="col-6 col-sm-6">
+            <a href="#" class="btn btn-info" role="button">Modifier le mot de passe</a>
+        </div>
+    </div>
 
 {% endblock %}
 
