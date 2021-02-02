@@ -64,7 +64,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private $roles = ["ROLE_USER"];
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
@@ -142,19 +142,7 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
-/*
-    public function getConfirmPassword(): ?string
-    {
-        return $this->confirmPassword;
-    }
 
-    public function setConfirmPassword(string $confirmPassword): self
-    {
-        $this->confirmPassword = $confirmPassword;
-
-        return $this;
-    }
-*/
     public function getRole(): ?string
     {
         return $this->role;
@@ -167,6 +155,7 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    //02/02/21 : pb method so used default value instead (see above)
     public function getRoles(): array
     {
         $roles = $this->roles;
@@ -174,9 +163,11 @@ class User implements UserInterface, \Serializable
        // $roles[] = 'ROLE_USER';
 
         if ($this->role == "administrateur")
-            return ["ROLE_ADMIN"];
+            $roles[] = "ROLE_ADMIN";
+            //return ["ROLE_ADMIN"];
         if ($this->role == "client")
-            return ["ROLE_USER"];
+            $roles[] = "ROLE_USER";
+            //return ["ROLE_USER"];
         return array_unique($roles);
     }
 

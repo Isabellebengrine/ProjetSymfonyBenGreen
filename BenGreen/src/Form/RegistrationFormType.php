@@ -34,36 +34,16 @@ class RegistrationFormType extends AbstractType
                             'message' => 'Caractère(s) non valide(s)'
                         ]),]
                 ),
-                'second_options' => array('label' => 'Confirmation du mot de passe'),
+                'second_options' => array(
+                    'label' => 'Confirmation du mot de passe'
+                ),
             ))
 
-
-//            ->add('plainPassword', PasswordType::class, [
-//                // instead of being set onto the object directly,
-//                // this is read and encoded in the controller
-//                'mapped' => false,
-//                'constraints' => [
-//                    new NotBlank([
-//                        'message' => 'Please enter a password',
-//                    ]),
-//                    new Length([
-//                        'min' => 6,
-//                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-//                        // max length allowed by Symfony for security reasons
-//                        'max' => 4096,
-//                    ]),
-//                ],
-//            ])
-/* in case you need to ask to repeat password :
-            ->add('confirm_password', PasswordType::class, [
-                'label' => 'Répétez votre mot de passe'
-            ])
-*/
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous avez oublié de cocher cette case',
                     ]),
                 ],
             ])
