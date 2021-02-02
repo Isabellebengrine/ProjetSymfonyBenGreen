@@ -87,7 +87,7 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user): Response
     {
-        //pour autoriser seulmt si user edits his own info not anyother user's info :
+        //to authorize only user to edit his own info not anyother user's info :
         $this->denyAccessUnlessGranted('edit', $user, 'non non non ... action non autorisée!');
 
         $form = $this->createForm(UserType::class, $user);

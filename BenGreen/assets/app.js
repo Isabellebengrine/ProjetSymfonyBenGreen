@@ -9,7 +9,7 @@
 import './styles/app.css';
 
 // start the Stimulus application
-//import './bootstrap';
+import './bootstrap';
 
 import noUiSlider from 'nouislider'
 import 'nouislider/distribute/nouislider.css'

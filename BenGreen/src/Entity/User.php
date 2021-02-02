@@ -66,6 +66,16 @@ class User implements UserInterface, \Serializable
      */
     private $roles = [];
 
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $firstname;
+
     public function __construct() {
         $this->isActive = true;
         // may not be needed, see section on salt below
@@ -214,6 +224,30 @@ class User implements UserInterface, \Serializable
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized);
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
     }
 
 }

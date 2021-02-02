@@ -7,11 +7,12 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {# to add for font awesome icons : #}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-        {% block stylesheets %}
 
         {{ encore_entry_link_tags('app') }}{# to charge css #}
             {# to charge js (used replace to make sure it is charged at the end )  #}
         {{ encore_entry_script_tags('app') | replace({'src=': 'defer src='}) | raw }}
+        {% block stylesheets %}
+
         {% endblock %}
 
 
