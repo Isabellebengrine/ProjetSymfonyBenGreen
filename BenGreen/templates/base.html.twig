@@ -30,42 +30,36 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="nav navbar-nav list-inline">
-                        <li class="nav-item list-inline-item">
+                        <li class="nav-item list-inline-item ml-auto mr-auto">
                             <a class="nav-link" href="{{ path('products_index') }}">Catalogue
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
 
                         {% if is_granted('ROLE_USER') %}
-                            <li class="nav-item {% if mainNavMember is defined %}active{% endif %}">
+                            <li class="nav-item ml-auto mr-auto {% if mainNavMember is defined %}active{% endif %}">
                                 <a class="nav-link" href="{{path('app_member_index')}}">Espace Membre </a>
                             </li>
                         {% endif %}
 
-                        {# 01/31 à finir :
+
                         {% if is_granted('ROLE_ADMIN') %}
                             <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
                                 <a class="nav-link" href="{{path('app_admin_homepage_index')}}">Espace Admin</a>
                             </li>
                         {% endif %}
 
-                         réserver lien créer à admin du site : if not app.user_role == admin ...
-                        <li class="nav-item list-inline-item">
-                            <a class="nav-link" href="{{ path('products_new') }}">Creer</a>
-                        </li>
-                        #}
-
                         {% if not app.user %}
 
-                            <li class="nav-item list-inline-item">
+                            <li class="nav-item ml-auto mr-auto list-inline-item">
                                 <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
                             </li>
 
-                            <li class="nav-item list-inline-item">
+                            <li class="nav-item ml-auto mr-auto list-inline-item">
                                 <a class="nav-link" href="{{ path('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Connexion</a>
                             </li>
                         {% else %}
-                            <li class="nav-item list-inline-item">
+                            <li class="nav-item ml-auto mr-auto list-inline-item">
                                 <a href="{{ path('logout') }}" class="nav-link">Déconnexion</a>
                             </li>
                         {% endif %}
