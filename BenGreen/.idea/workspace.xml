@@ -22,9 +22,10 @@
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/member.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/orders.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/orders.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/user.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +169,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/member" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -182,6 +183,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen\templates\member" />
       <recent name="C:\Users\AATAR\Desktop\projet symfony perso\BenGreen\src\Form" />
       <recent name="C:\Users\AATAR\Desktop\CDA20049_1\monProjet\migrations" />
     </key>
@@ -261,7 +263,7 @@
       <workItem from="1612258321932" duration="1699000" />
       <workItem from="1612260054377" duration="18571000" />
       <workItem from="1612288409646" duration="6226000" />
-      <workItem from="1612336139914" duration="8091000" />
+      <workItem from="1612336139914" duration="13041000" />
     </task>
     <servers />
   </component>
@@ -290,7 +292,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Entity/User.php</url>
-          <line>203</line>
+          <line>200</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

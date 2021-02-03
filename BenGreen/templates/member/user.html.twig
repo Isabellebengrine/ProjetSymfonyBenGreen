@@ -1,12 +1,18 @@
 {% extends 'member.html.twig' %}
 
-{% block title %}Espace Membre - Compte{% endblock %}
+{% block title %}Compte de {{ app.user.firstname }} {{ app.user.lastname }}{% endblock %}
 
 {% block body %}
 
 <div class="row">
     <div class="col-12 col-sm-12">
-        <h2>Votre profil :</h2>
+        <h1 class="text-info text-center">Votre Compte</h1>
+        {% for message in app.flashes('message') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
     </div>
 </div>
 
@@ -36,7 +42,7 @@
 </div>
 <div class="row">
     <div class="col-6 col-sm-6">
-        <a href="#" class="btn btn-info" role="button">Modifier le profil</a>
+        <a href="{{ path('member_userinfo_edit') }}" class="btn btn-info" role="button">Modifier le profil</a>
     </div>
     <div class="col-6 col-sm-6">
         <a href="#" class="btn btn-info" role="button">Modifier le mot de passe</a>

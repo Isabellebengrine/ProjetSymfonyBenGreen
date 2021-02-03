@@ -163,17 +163,14 @@ class User implements UserInterface, \Serializable
     //02/02/21 : pb method so used default value instead (see above)
     public function getRoles(): array
     {
-        $roles = $this->roles;
+        //$roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-       // $roles[] = 'ROLE_USER';
+        // $roles[] = 'ROLE_USER';
 
         if ($this->role == "administrateur")
-            $roles[] = "ROLE_ADMIN";
-            //return ["ROLE_ADMIN"];
+            return array("ROLE_ADMIN");
         if ($this->role == "client")
-            $roles[] = "ROLE_USER";
-            //return ["ROLE_USER"];
-        return array_unique($roles);
+            return array("ROLE_USER");
     }
 
     function addRole($role) {
