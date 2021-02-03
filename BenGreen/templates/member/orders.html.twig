@@ -10,32 +10,31 @@
                 <h1 class="text-info text-center">{{ app.user.customer.totalorders | length }} commandes dans votre historique</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4 col-sm-4">
-                Commandes :
-            </div>
-            <div class="col-8 col-sm-8">
-                {% for totalorder in app.user.customer.totalorders %}
-                {# pb: "Object of class DateTime could not be converted to string" on :  {{ totalorder.totalorderDate }}#}
-                <p> - {{ totalorder.id }}
-                    {# à finir 03/02/21 :                - Détails:#}
-                    {#                    {% for detail in totalorder.id.orderdetails %}#}
-                    {#                        {{ detail.orderdetailPrice }} Euros - Quantité: {{ detail.orderdetailQuantity }}</p>#}
-                    {#                    {% endfor %}#}
-                    {%  endfor %}
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-4 col-sm-4">
-                Factures :
-            </div>
-            <div class="col-8 col-sm-8">
-                {% for totalorder in app.user.customer.totalorders %}
-                    {# pb: "Object of class DateTime could not be converted to string" on :  {{ totalorder.totalorderInvoicedate }}#} <p> - {{ totalorder.totalorderInvoicenb }}</p>
-                {%  endfor %}
-            </div>
-        </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Commande n°</th>
+                <th scope="col">Date</th>
+                <th scope="col">Adresse de livraison</th>
+                <th scope="col">Facture n°</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for totalorder in app.user.customer.totalorders %}
+                <tr class="table-dark">
+                    <th scope="row">{{ totalorder.id }}
+                        <a href="{{path('member_orderdetails')}}" class="btn btn-info">Détails</a>
+                    </th>
+                    <td>{{ totalorder.totalorderDate |date('d-m-Y') }}</td>
+                    <td>{{ totalorder.totalorderDeliveryaddress }}</td>
+                    <td>{{ totalorder.totalorderInvoicenb }}
+                        <a href="{{ path('member_invoices') }}" class="btn btn-info">Voir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
     {% else %}
 
@@ -50,7 +49,6 @@
 
     {% endif %}
 
-<img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
 {% endblock %}
 
 

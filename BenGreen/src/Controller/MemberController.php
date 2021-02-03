@@ -103,4 +103,20 @@ class MemberController extends AbstractController
         return $this->render('member/orders.html.twig', ['mainNavMember'=>true, 'title'=>'Espace Membre']);
     }
 
+    /**
+     * @Route("/orderdetails", name="member_orderdetails")
+     */
+    public function showOrderdetails()
+    {
+        return $this->render('member/orderdetails.html.twig', ['mainNavMember'=>true, 'title'=>'Espace Membre']);
+    }
+
+    /**
+     * @Route("/invoices", name="member_invoices")
+     */
+    public function showInvoices()
+    {
+        return $this->render('member/invoices.html.twig', ['mainNavMember'=>true, 'title'=>'Espace Membre']);
+    }
+
 }
