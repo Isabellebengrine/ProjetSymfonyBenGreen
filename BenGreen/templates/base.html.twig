@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <img class="img-responsive" src="{{ asset('images/nomusicmini.jpg') }}" alt="no music no life" width="20%">
-                    <a class="navbar-brand text-info" href="/">BenGreen</a>
+                    <a class="navbar-brand text-success" href="/">BenGreen</a>
                     <button class="navbar-toggler btn-info float-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -30,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="nav navbar-nav list-inline">
                         <li class="nav-item list-inline-item ml-auto mr-auto">
-                            <a class="nav-link" href="{{ path('products_index') }}">
+                            <a class="nav-link text-success" href="{{ path('products_index') }}">
                                 <i class="fas fa-search"></i> Catalogue
                                 <span class="sr-only">(current)</span>
                             </a>
@@ -38,29 +38,29 @@
 
                         {% if is_granted('ROLE_USER') %}
                             <li class="nav-item ml-auto mr-auto {% if mainNavMember is defined %}active{% endif %}">
-                                <a class="nav-link" href="{{path('app_member_index')}}"><i class="fas fa-sign-in-alt"></i> Espace Membre </a>
+                                <a class="nav-link text-success" href="{{path('app_member_index')}}"><i class="fas fa-sign-in-alt"></i> Espace Membre </a>
                             </li>
                         {% endif %}
 
 
                         {% if is_granted('ROLE_ADMIN') %}
                             <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
-                                <a class="nav-link" href="{{path('app_admin_homepage_index')}}"> <i class="fas fa-sign-in-alt"></i> Espace Admin</a>
+                                <a class="nav-link text-success" href="{{path('app_admin_homepage_index')}}"> <i class="fas fa-sign-in-alt"></i> Espace Admin</a>
                             </li>
                         {% endif %}
 
                         {% if not app.user %}
 
                             <li class="nav-item ml-auto mr-auto list-inline-item">
-                                <a class="nav-link" href="{{ path('app_register') }}"><i class="fas fa-user-plus"></i> Inscription</a>
+                                <a class="nav-link text-success" href="{{ path('app_register') }}"><i class="fas fa-user-plus"></i> Inscription</a>
                             </li>
 
                             <li class="nav-item ml-auto mr-auto list-inline-item">
-                                <a class="nav-link" href="{{ path('login') }}"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+                                <a class="nav-link text-success" href="{{ path('login') }}"><i class="fas fa-sign-in-alt"></i> Connexion</a>
                             </li>
                         {% else %}
                             <li class="nav-item ml-auto mr-auto list-inline-item">
-                                <a href="{{ path('logout') }}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                                <a href="{{ path('logout') }}" class="nav-link text-success"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                             </li>
                         {% endif %}
                     </ul>
