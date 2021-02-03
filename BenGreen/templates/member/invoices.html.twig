@@ -24,7 +24,7 @@
             {% for totalorder in app.user.customer.totalorders %}
                 <tr class="table-dark">
                     <th scope="row">{{ totalorder.totalorderInvoicenb }}
-                        <a href="{{path('member_orderdetails')}}" class="btn btn-info">Détails</a>
+                        <a href="{{path('member_orderdetails', {'id': totalorder.id})}}" class="btn btn-info">Détails</a>
                     </th>
                     <td>{{ totalorder.totalorderInvoicedate |date('d-m-Y') }}</td>
                     <td>{{ totalorder.totalorderBilladdress }}</td>

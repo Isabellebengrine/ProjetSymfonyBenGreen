@@ -62,7 +62,7 @@
                     <a href="{{ path('member_customer') }}" class="nav-link text-info">Mes coordonnées</a>
                 </div>
                 <div class="h2 py-4 text-white">
-                    <a href="{{ path('member_orders') }}" class="nav-link text-info">Mes commandes</a>
+                    <a href="{{ path('member_orders', {'id': app.user.customer.id}) }}" class="nav-link text-info">Mes commandes</a>
                 </div>
             </div>
             <div class="col-8 col-sm-8">

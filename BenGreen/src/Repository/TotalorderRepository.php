@@ -19,22 +19,21 @@ class TotalorderRepository extends ServiceEntityRepository
         parent::__construct($registry, Totalorder::class);
     }
 
-    // /**
-    //  * @return Totalorder[] Returns an array of Totalorder objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return Totalorder[] Returns an array of Totalorder objects
+      */
+
+    public function findByCustomer($value)
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+            ->andWhere('t.customers = :val')
             ->setParameter('val', $value)
             ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Totalorder

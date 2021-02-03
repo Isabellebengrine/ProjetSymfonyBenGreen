@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Customers;
+use App\Entity\Totalorder;
 use App\Form\EditAccountType;
+use App\Repository\OrderdetailRepository;
+use App\Repository\TotalorderRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -96,27 +100,45 @@ class MemberController extends AbstractController
     }
 
     /**
-     * @Route("/orders", name="member_orders")
+     * @Route("/orders/{id}", name="member_orders", methods={"GET"}, requirements={"id"="\d+"})
      */
-    public function showOrders()
+    public function showOrders(TotalorderRepository $totalorderRepository, int $id): Response
     {
-        return $this->render('member/orders.html.twig', ['mainNavMember'=>true, 'title'=>'Espace Membre']);
+        $customer = $this->getDoctrine()->getRepository(Customers::class)->find($id);
+        $customerId = $customer->getId();
+        $totalorders = $totalorderRepository->findByCustomer($customerId);
+        return $this->render('member/orders.html.twig', [
+            'controller_name' => 'MemberController',
+            'customer' => $customer,
+            'totalorders' => $totalorders,
+            'mainNavMember'=>true,
+            'title'=>'Espace Membre']);
     }
 
     /**
-     * @Route("/orderdetails", name="member_orderdetails")
+     * @Route("/orderdetails/totalorder/{id}", name="member_orderdetails", methods={"GET"}, requirements={"id"="\d+"})
      */
-    public function showOrderdetails()
+    public function showOrderdetails(OrderdetailRepository $orderdetailRepository, int $id): Response
     {
-        return $this->render('member/orderdetails.html.twig', ['mainNavMember'=>true, 'title'=>'Espace Membre']);
+        $totalorder = $this->getDoctrine()->getRepository(Totalorder::class)->find($id);
+        $totalorderId = $totalorder->getId();
+        $orderdetails = $orderdetailRepository->findByTotalorder($totalorderId);
+        return $this->render('member/orderdetails.html.twig', [
+            'controller_name' => 'MemberController',
+            'orderdetails' => $orderdetails,
+            'totalorder' => $totalorder,
+            'mainNavMember'=>true,
+            'title'=>'Espace Membre']);
     }
 
     /**
-     * @Route("/invoices", name="member_invoices")
+     * @Route("/invoices", name="member_invoices", methods={"GET"})
      */
     public function showInvoices()
     {
-        return $this->render('member/invoices.html.twig', ['mainNavMember'=>true, 'title'=>'Espace Membre']);
+        return $this->render('member/invoices.html.twig', [
+            'mainNavMember'=>true,
+            'title'=>'Espace Membre']);
     }
 
 }

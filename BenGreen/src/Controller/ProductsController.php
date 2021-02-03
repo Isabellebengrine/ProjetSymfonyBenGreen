@@ -51,7 +51,7 @@ class ProductsController extends AbstractController
     }
 
     /**
-     * @Route("/rubrique/{id}", name="productsbyrubrique_show", methods={"GET"}, requirements={"id"="\d+"}))
+     * @Route("/rubrique/{id}", name="productsbyrubrique_show", methods={"GET"}, requirements={"id"="\d+"})
      */
     public function findProductsWithSousRubrique(ProductsRepository $productsRepository, int $id): Response
     {

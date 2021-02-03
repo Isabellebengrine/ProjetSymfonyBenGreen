@@ -7,7 +7,7 @@
     {% if(app.user.customer) %}
         <div class="row">
             <div class="col-12 col-sm-12">
-                <h1 class="text-info text-center">{{ app.user.customer.totalorders | length }} commandes dans votre historique</h1>
+                <h1 class="text-info text-center">{{ totalorders | length }} commandes dans votre historique</h1>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
             {% for totalorder in app.user.customer.totalorders %}
                 <tr class="table-dark">
                     <th scope="row">{{ totalorder.id }}
-                        <a href="{{path('member_orderdetails')}}" class="btn btn-info">Détails</a>
+                        <a href="{{ path('member_orderdetails', {'id': totalorder.id}) }}" class="btn btn-info">Détails</a>
                     </th>
                     <td>{{ totalorder.totalorderDate |date('d-m-Y') }}</td>
                     <td>{{ totalorder.totalorderDeliveryaddress }}</td>

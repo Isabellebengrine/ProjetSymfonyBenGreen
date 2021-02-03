@@ -1,1 +1,61 @@
-<img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
+{% extends 'member.html.twig' %}
+
+{% block title %}Espace Membre - Détails des Commandes{% endblock %}
+
+{% block body %}
+
+    {% if(app.user.customer) %}
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <h1 class="text-info text-center my-3">Détails : Commande n° {{ totalorder.id }} - Facture n° {{ totalorder.totalorderInvoicenb }}</h1>
+            </div>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Article réf</th>
+                <th class="text-right" scope="col">Prix</th>
+                <th class="text-right" scope="col">Quantité</th>
+                <th class="text-right" scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for orderdetail in orderdetails %}
+                <tr class="table-dark">
+                    <th scope="row">{{ orderdetail.products }}</th>
+                    <td class="text-right">{{ orderdetail.orderdetailPrice }}</td>
+                    <td class="text-right">{{ orderdetail.orderdetailQuantity }}</td>
+                    <td class="text-right">{{ orderdetail.orderdetailPrice * orderdetail.orderdetailQuantity }}</td>
+                </tr>
+            {% endfor %}
+            <tr class="table-success">
+                <th scope="row" colspan="3">Total :</th>
+                <td class="text-right">
+                    {% set somme = 0 %}
+                    {% for orderdetail in orderdetails %}
+                        {% set somme = somme + orderdetail.orderdetailPrice * orderdetail.orderdetailQuantity %}
+                    {% endfor %}
+                    {{ somme }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    {% else %}
+
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <p>Vous n'avez pas encore commandé!</p>
+                {# voir si lien vers catalogue ou vers panier ? #}
+                <button class="btn btn-info">Retourner au catalogue</button>
+            </div>
+        </div>
+
+
+    {% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
