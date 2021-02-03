@@ -7,14 +7,12 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1 class="text-center text-info">Catalogue de nos produits</h1>
-                {# à faire : mettre lien dans if app.user == admin pour ne l'afficher que pour admin : #}
-     {#            <a href="{{ path('products_new') }}">Ajouter un nouveau produit</a>#}
             </div>
         </div>
 
         <div class="row">
             {# div to show search form : #}
-            <div class="col-md-3">{# enlevé class js-filter-form et ajouté directment dans _filter.html.twig #}
+            <div class="col-md-3">
                 {% include 'products/_filter.html.twig' with {form: form, min: min, max: max} only %}
             </div>
             <div class="col-md-9">
