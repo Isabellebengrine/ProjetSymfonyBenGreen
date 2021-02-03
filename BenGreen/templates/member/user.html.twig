@@ -8,7 +8,7 @@
     <div class="col-12 col-sm-12">
         <h1 class="text-info text-center">Votre Compte</h1>
         {% for message in app.flashes('message') %}
-            <div class="alert alert-success">
+            <div class="alert alert-success my-3">
                 {{ message }}
             </div>
         {% endfor %}
@@ -45,7 +45,7 @@
         <a href="{{ path('member_userinfo_edit') }}" class="btn btn-info" role="button">Modifier le profil</a>
     </div>
     <div class="col-6 col-sm-6">
-        <a href="#" class="btn btn-info" role="button">Modifier le mot de passe</a>
+        <a href="{{ path('member_userpass_edit') }}" class="btn btn-info" role="button">Modifier le mot de passe</a>
     </div>
 </div>
 
