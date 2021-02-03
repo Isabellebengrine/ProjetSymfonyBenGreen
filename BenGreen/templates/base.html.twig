@@ -44,7 +44,7 @@
 
 
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
+                            <li class="nav-item ml-auto mr-auto {% if mainNavAdmin is defined %}active{% endif %}">
                                 <a class="nav-link text-success" href="{{path('app_admin_homepage_index')}}"> <i class="fas fa-sign-in-alt"></i> Espace Admin</a>
                             </li>
                         {% endif %}
