@@ -5,11 +5,11 @@
         <div class="card-title text-white" style="font-weight: bold; font-size: 1.5rem">{{ product.productsPrice | number_format(2, ',', ' ') }} €</div>
         <p class="text text-muted">{{ product.productsDescription }}</p>
         <div>
-            <em class="text text-primary">{{ product.rubrique }}</em>
+            <em class="text text-success">{{ product.rubrique }}</em>
         </div>
     </div>
     <div class="card-footer">
-        <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button">Détails</a>
+        <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-info card-link text-white" role="button">Détails</a>
         {# à faire dans un if app.user_role == admin : <a href="{{ path('products_edit', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button">Modifier</a> #}
     </div>
 
