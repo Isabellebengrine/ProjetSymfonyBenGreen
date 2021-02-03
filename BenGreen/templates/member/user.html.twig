@@ -1,0 +1,52 @@
+{% extends 'member.html.twig' %}
+
+{% block title %}Espace Membre - Compte{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <h2>Votre profil :</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 col-sm-3">
+        <p>Nom :</p>
+    </div>
+    <div class="col-4 col-sm-4">
+        {{ app.user.lastname }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-sm-3">
+        <p>Prénom :</p>
+    </div>
+    <div class="col-4 col-sm-4">
+        {{ app.user.firstname }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-sm-3">
+        <p>E-mail :</p>
+    </div>
+    <div class="col-4 col-sm-4">
+        {{ app.user.email }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-6 col-sm-6">
+        <a href="#" class="btn btn-info" role="button">Modifier le profil</a>
+    </div>
+    <div class="col-6 col-sm-6">
+        <a href="#" class="btn btn-info" role="button">Modifier le mot de passe</a>
+    </div>
+</div>
+
+
+<img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

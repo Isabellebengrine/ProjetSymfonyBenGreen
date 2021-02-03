@@ -38,7 +38,7 @@
 
                         {% if is_granted('ROLE_USER') %}
                             <li class="nav-item ml-auto mr-auto {% if mainNavMember is defined %}active{% endif %}">
-                                <a class="nav-link text-success" href="{{path('app_member_index')}}"><i class="fas fa-sign-in-alt"></i> Espace Membre </a>
+                                <a class="nav-link text-success" href="{{path('member_home')}}"><i class="fas fa-sign-in-alt"></i> Espace Membre </a>
                             </li>
                         {% endif %}
 

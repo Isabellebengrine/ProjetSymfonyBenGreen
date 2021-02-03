@@ -1,0 +1,52 @@
+{% extends 'member.html.twig' %}
+
+{% block title %}Espace Membre - Coordonnées{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <h2>Coordonnées de {{ app.user.firstname }} {{ app.user.lastname }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            Adresse :
+        </div>
+        <div class="col-8 col-sm-8">
+            {{ app.user.customer.customersAddress }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            Code Postal - Ville :
+        </div>
+        <div class="col-8 col-sm-8">
+            {{ app.user.customer.customersZipcode }} - {{ app.user.customer.customersCity }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            Téléphone :
+        </div>
+        <div class="col-8 col-sm-8">
+            {{ app.user.customer.customersPhone }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            Votre contact chez nous :
+        </div>
+        <div class="col-8 col-sm-8">
+            {{ app.user.customer.employee.employeeName }}
+        </div>
+    </div>
+
+
+    <img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

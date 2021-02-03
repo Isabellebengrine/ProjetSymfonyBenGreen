@@ -1,0 +1,38 @@
+{% extends 'member.html.twig' %}
+
+{% block title %}Espace Membre - Commandes{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            Commandes :
+        </div>
+        <div class="col-8 col-sm-8">
+            {% for totalorder in app.user.customer.totalorders %}
+            {# pb: "Object of class DateTime could not be converted to string" on :  {{ totalorder.totalorderDate }}#}
+            <p> - {{ totalorder.id }}
+                {# à finir 03/02/21 :                - Détails:#}
+                {#                    {% for detail in totalorder.id.orderdetails %}#}
+                {#                        {{ detail.orderdetailPrice }} Euros - Quantité: {{ detail.orderdetailQuantity }}</p>#}
+                {#                    {% endfor %}#}
+                {%  endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            Factures :
+        </div>
+        <div class="col-8 col-sm-8">
+            {% for totalorder in app.user.customer.totalorders %}
+                {# pb: "Object of class DateTime could not be converted to string" on :  {{ totalorder.totalorderInvoicedate }}#} <p> - {{ totalorder.totalorderInvoicenb }}</p>
+            {%  endfor %}
+        </div>
+    </div>
+
+<img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}
