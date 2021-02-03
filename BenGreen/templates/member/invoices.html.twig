@@ -1,1 +1,55 @@
-<img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
+{% extends 'member.html.twig' %}
+
+{% block title %}Espace Membre - Factures{% endblock %}
+
+{% block body %}
+
+    {% if(app.user.customer) %}
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <h1 class="text-info text-center">{{ app.user.customer.totalorders | length }} factures dans votre historique</h1>
+            </div>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Facture n°</th>
+                <th scope="col">Date</th>
+                <th scope="col">Adresse de facturation</th>
+                <th scope="col">Echéance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for totalorder in app.user.customer.totalorders %}
+                <tr class="table-dark">
+                    <th scope="row">{{ totalorder.totalorderInvoicenb }}
+                        <a href="{{path('member_orderdetails')}}" class="btn btn-info">Détails</a>
+                    </th>
+                    <td>{{ totalorder.totalorderInvoicedate |date('d-m-Y') }}</td>
+                    <td>{{ totalorder.totalorderBilladdress }}</td>
+                    <td>{{ totalorder.totalorderDeadline }}
+                        <a href="#" class="btn btn-info">Payer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <p>Vous n'avez pas encore de factures!</p>
+                <a href="{{ path('products_index') }}" class="btn btn-info">Retourner au catalogue</a>
+            </div>
+        </div>
+
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}
