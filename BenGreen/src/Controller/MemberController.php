@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorietva;
 use App\Entity\Customers;
+use App\Entity\Employee;
 use App\Entity\Totalorder;
+use App\Entity\User;
+use App\Form\CustomersType;
 use App\Form\EditAccountType;
 use App\Repository\OrderdetailRepository;
 use App\Repository\TotalorderRepository;
@@ -104,6 +108,7 @@ class MemberController extends AbstractController
      */
     public function editCustomerInfo(): Response
     {
+        //to finish - 04/02/2021:
         return $this->render('member/customer_edit.html.twig', [
             'mainNavMember'=>true,
             'title'=>'Espace Membre']);
@@ -111,10 +116,38 @@ class MemberController extends AbstractController
 
     /**
      * @Route("/customer/new", name="member_customer_add", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
-    public function addCustomer(): Response
+    public function addCustomer(Request $request): Response
     {
+        $customer = new Customers();
+        $form = $this->createForm(CustomersType::class, $customer);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            //to add customer-id number in user table for this user:
+            $userRepo = $entityManager->getRepository(User::class);
+            $user = $userRepo->find($this->getUser());
+            $user->setCustomer($customer);
+
+            $entityManager->persist($customer);
+            $entityManager->flush();
+
+            //affiche msg de confirmation :
+            $this->addFlash(
+                'success',
+                'Vos informations ont bien été enregistrées avec succès !!'
+            );
+            //redirection vers page Espace Membre/customer :
+            return $this->redirectToRoute('member_customer');
+        }
+
         return $this->render('member/customer_add.html.twig', [
+            'customer' => $customer,
+            'form' => $form->createView(),
             'mainNavMember'=>true,
             'title'=>'Espace Membre']);
     }

@@ -4,13 +4,20 @@
 
 {% block body %}
 
+    {% if(app.user.customer) %}
+
     <div class="row">
         <div class="col-12 col-sm-12">
             <h1 class="text-center text-info">Coordonnées de {{ app.user.firstname }} {{ app.user.lastname }}</h1>
         </div>
     </div>
 
-    {% if(app.user.customer) %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+
     <div class="row">
         <div class="col-4 col-sm-4">
             Adresse client:
@@ -36,14 +43,16 @@
             {{ app.user.customer.customersPhone }}
         </div>
     </div>
-    <div class="row">
-        <div class="col-4 col-sm-4">
-            Votre contact chez nous :
+        {% if(app.user.customer.employee) %}
+        <div class="row">
+            <div class="col-4 col-sm-4">
+                Votre contact chez nous :
+            </div>
+            <div class="col-8 col-sm-8">
+                {{ app.user.customer.employee.employeeName }} est à votre disposition!
+            </div>
         </div>
-        <div class="col-8 col-sm-8">
-            {{ app.user.customer.employee.employeeName }} est à votre disposition!
-        </div>
-    </div>
+        {% endif %}
     <div class="row">
         <div class="col-12 col-sm-12">
             <a href="{{ path('member_customer_edit', {'id': app.user.customer.id}) }}" class="my-3 btn btn-info" role="button">Modifier vos coordonnées</a>
@@ -54,7 +63,7 @@
 
         <div class="row">
             <div class="col-12 col-sm-12">
-                <p>Vous n'avez pas encore créé votre compte client et renseigné vos coordonnées!</p>
+                <p class="my-5">Vous n'avez pas encore créé votre compte client et renseigné vos coordonnées!</p>
                 <a href="{{ path('member_customer_add') }}" class="btn btn-info">Créer mon compte client</a>
             </div>
         </div>

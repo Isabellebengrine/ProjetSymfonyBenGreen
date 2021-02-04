@@ -1,1 +1,23 @@
-<img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
+{% extends 'member.html.twig' %}
+
+{% block title %}Création du compte de {{ app.user.firstname }} {{ app.user.lastname }}{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <h1 class="text-info text-center">Création du compte de {{ app.user.firstname }} {{ app.user.lastname }}
+            </h1>
+            {{ form(form) }}
+        </div>
+    </div>
+
+    <img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="no music no life" width="20%">
+
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}
+
+

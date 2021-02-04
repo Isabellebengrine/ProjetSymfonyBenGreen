@@ -51,7 +51,7 @@ class Customers
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorietva::class, inversedBy="customers")
-     * @ORM\JoinColumn(nullable=false)
+     *
      */
     private $categorietva;
 
