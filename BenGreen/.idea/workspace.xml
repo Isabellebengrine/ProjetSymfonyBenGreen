@@ -23,14 +23,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Orderdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orderdetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/OrderdetailRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OrderdetailRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TotalorderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TotalorderRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/member.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/invoices.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/invoices.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/orderdetails.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/orderdetails.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/orders.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/orders.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/customer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/customer.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +262,8 @@
       <workItem from="1612258321932" duration="1699000" />
       <workItem from="1612260054377" duration="18571000" />
       <workItem from="1612288409646" duration="6226000" />
-      <workItem from="1612336139914" duration="30549000" />
+      <workItem from="1612336139914" duration="30924000" />
+      <workItem from="1612422518874" duration="2045000" />
     </task>
     <servers />
   </component>

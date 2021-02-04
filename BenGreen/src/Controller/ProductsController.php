@@ -143,7 +143,7 @@ class ProductsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="products_edit", methods={"GET","POST"}, requirements={"id"="\d+"}))
+     * @Route("/{id}/edit", name="products_edit", methods={"GET","POST"}, requirements={"id"="\d+"})
      * @return Response
      */
 

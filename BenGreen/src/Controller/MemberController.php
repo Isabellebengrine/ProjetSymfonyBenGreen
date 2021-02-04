@@ -100,6 +100,26 @@ class MemberController extends AbstractController
     }
 
     /**
+     * @Route("/customer/{id}/edit", name="member_customer_edit", methods={"GET","POST"}, requirements={"id"="\d+"})
+     */
+    public function editCustomerInfo(): Response
+    {
+        return $this->render('member/customer_edit.html.twig', [
+            'mainNavMember'=>true,
+            'title'=>'Espace Membre']);
+    }
+
+    /**
+     * @Route("/customer/new", name="member_customer_add", methods={"GET","POST"})
+     */
+    public function addCustomer(): Response
+    {
+        return $this->render('member/customer_add.html.twig', [
+            'mainNavMember'=>true,
+            'title'=>'Espace Membre']);
+    }
+
+    /**
      * @Route("/orders/{id}", name="member_orders", methods={"GET"}, requirements={"id"="\d+"})
      */
     public function showOrders(TotalorderRepository $totalorderRepository, int $id): Response
