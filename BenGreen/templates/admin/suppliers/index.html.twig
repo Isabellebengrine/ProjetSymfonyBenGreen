@@ -1,0 +1,43 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Fournisseurs{% endblock %}
+
+{% block body %}
+    <h1>Liste des fournisseurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Téléphone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for supplier in suppliers %}
+            <tr>
+                <td>{{ supplier.id }}</td>
+                <td>{{ supplier.suppliersName }}</td>
+                <td>{{ supplier.suppliersAddress }}</td>
+                <td>{{ supplier.suppliersZipcode }}</td>
+                <td>{{ supplier.suppliersCity }}</td>
+                <td>{{ supplier.suppliersPhone }}</td>
+                <td>
+                    <a href="{{ path('admin_suppliers_show', {'id': supplier.id}) }}">Voir</a>
+                    <a href="{{ path('admin_suppliers_edit', {'id': supplier.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun fournisseur</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_suppliers_new') }}">Ajouter un nouveau fournisseur</a>
+{% endblock %}

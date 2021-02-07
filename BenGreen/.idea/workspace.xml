@@ -21,14 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Categorietva.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorietva.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/customer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/customer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/customer_add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/customer_add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/customer_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/customer_edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/HomepageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/HomepageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SuppliersController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/homepage/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suppliers/index.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +187,10 @@
       <recent name="C:\Users\AATAR\Desktop\projet symfony perso\BenGreen\src\Form" />
       <recent name="C:\Users\AATAR\Desktop\CDA20049_1\monProjet\migrations" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen\templates\admin" />
+      <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen\src\Controller\Admin" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -267,7 +268,8 @@
       <workItem from="1612260054377" duration="18571000" />
       <workItem from="1612288409646" duration="6226000" />
       <workItem from="1612336139914" duration="30924000" />
-      <workItem from="1612422518874" duration="19391000" />
+      <workItem from="1612422518874" duration="19519000" />
+      <workItem from="1612728661542" duration="4820000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Espace Admin{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {# to add for font awesome icons : #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    {{ encore_entry_link_tags('app') }}{# to charge css #}
+    {# to charge js (used replace to make sure it is charged at the end )  #}
+    {{ encore_entry_script_tags('app') | replace({'src=': 'defer src='}) | raw }}
+    {% block stylesheets %}
+
+    {% endblock %}
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img class="img-responsive" src="{{ asset('images/nomusicmini.jpg') }}" alt="no music no life" width="20%">
+                <a class="navbar-brand text-success" href="/">BenGreen</a>
+                <button class="navbar-toggler btn-info float-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="nav navbar-nav list-inline">
+                    <li class="nav-item ml-auto mr-auto list-inline-item">
+                        <a class="nav-link text-success" href="{{ path('products_index') }}">
+                            <i class="fas fa-search"></i> Retour au Catalogue
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item ml-auto mr-auto {% if mainNavAdmin is defined %}active{% endif %}">
+                            <a class="nav-link" href="{{path('admin_home')}}">Espace Admin </a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item ml-auto mr-auto list-inline-item">
+                        <a href="{{ path('logout') }}" class="nav-link text-success"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            <div class="h2 py-4 text-white">
+                <a href="{{ path('admin_suppliers_home') }}" class="nav-link text-info">Fournisseurs</a>
+            </div>
+            <div class="h2 py-4 text-white">
+                <a href="#" class="nav-link text-info">Produits</a>
+            </div>
+            <div class="h2 py-4 text-white">
+                <a href="#" class="nav-link text-info">Commandes</a>
+            </div>
+            <div class="h2 py-4 text-white">
+                <a href="#" class="nav-link text-info">Employés</a>
+            </div>
+        </div>
+        <div class="col-8 col-sm-8">
+
+
+            {% block body %}{% endblock %}
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <img alt="footer" title="footer" class="img-responsive" src="{{ asset('images/footerSIMPLE.png') }}"  width="100%">
+</footer>
+
+{% block javascripts %}
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</body>
+</html>
