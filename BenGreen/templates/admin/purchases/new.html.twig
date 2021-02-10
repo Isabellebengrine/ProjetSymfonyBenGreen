@@ -1,0 +1,21 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouvel Achat{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-9 col-sm-9">
+            <h1 class="text-info">Ajouter un nouvel Achat</h1>
+        </div>
+        <div class="col-3 col-sm-3">
+            <a href="{{ path('admin_purchases_home') }}" class="btn btn-info">Retour Liste des Achats</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            {{ include('admin/purchases/_form.html.twig') }}
+        </div>
+
+    </div>
+
+{% endblock %}

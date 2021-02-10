@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('admin_purchases_delete', {'id': purchase.id}) }}" onsubmit="return confirm('Etes-vous bien sûr(e) de vouloir supprimer cet achat?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ purchase.id) }}">
+    <button class="btn btn-warning">Supprimer</button>
+</form>

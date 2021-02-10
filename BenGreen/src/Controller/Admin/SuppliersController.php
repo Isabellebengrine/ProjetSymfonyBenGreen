@@ -23,6 +23,8 @@ class SuppliersController extends AbstractController
         return $this->render('admin/suppliers/index.html.twig', [
             'controller_name' => 'SuppliersController',
             'suppliers' => $suppliersRepository->findAll(),
+            'mainNavAdmin' => true,
+            'title' => 'Espace Admin',
         ]);
     }
 
@@ -44,8 +46,11 @@ class SuppliersController extends AbstractController
         }
 
         return $this->render('admin/suppliers/new.html.twig', [
+            'controller_name' => 'SuppliersController',
             'supplier' => $supplier,
             'form' => $form->createView(),
+            'mainNavAdmin' => true,
+            'title' => 'Espace Admin',
         ]);
     }
 
@@ -55,7 +60,10 @@ class SuppliersController extends AbstractController
     public function show(Suppliers $supplier): Response
     {
         return $this->render('admin/suppliers/show.html.twig', [
+            'controller_name' => 'SuppliersController',
             'supplier' => $supplier,
+            'mainNavAdmin' => true,
+            'title' => 'Espace Admin',
         ]);
     }
 
@@ -70,12 +78,15 @@ class SuppliersController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_suppliers_index');
+            return $this->redirectToRoute('admin_suppliers_home');
         }
 
         return $this->render('admin/suppliers/edit.html.twig', [
+            'controller_name' => 'SuppliersController',
             'supplier' => $supplier,
             'form' => $form->createView(),
+            'mainNavAdmin' => true,
+            'title' => 'Espace Admin',
         ]);
     }
 

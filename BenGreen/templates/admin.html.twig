@@ -54,7 +54,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4 col-sm-4">
+        <div class="col-3 col-sm-3">
             <div class="h2 py-4 text-white">
                 <a href="{{ path('admin_suppliers_home') }}" class="nav-link text-info">Fournisseurs</a>
             </div>
@@ -62,13 +62,13 @@
                 <a href="#" class="nav-link text-info">Produits</a>
             </div>
             <div class="h2 py-4 text-white">
-                <a href="#" class="nav-link text-info">Commandes</a>
+                <a href="#" class="nav-link text-info">Commandes clients</a>
             </div>
             <div class="h2 py-4 text-white">
-                <a href="#" class="nav-link text-info">Employés</a>
+                <a href="{{ path('admin_purchases_home') }}" class="nav-link text-info">Achats</a>
             </div>
         </div>
-        <div class="col-8 col-sm-8">
+        <div class="col-9 col-sm-9">
 
 
             {% block body %}{% endblock %}
@@ -76,10 +76,6 @@
         </div>
     </div>
 </div>
-
-<footer>
-    <img alt="footer" title="footer" class="img-responsive" src="{{ asset('images/footerSIMPLE.png') }}"  width="100%">
-</footer>
 
 {% block javascripts %}
 {% endblock %}
