@@ -3,18 +3,24 @@
 {% block title %}Fournisseurs{% endblock %}
 
 {% block body %}
-    <h1>Liste des fournisseurs</h1>
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <h1 class="text-info">Liste des fournisseurs</h1>
+        </div>
+        <div class="col-12 col-sm-6">
+            <a href="{{ path('admin_suppliers_new') }}" class="btn btn-danger">Ajouter un nouveau fournisseur</a>
+        </div>
+    </div>
 
-    <table class="table">
+
+    <table class="table table-responsive">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Adresse</th>
-                <th>Code postal</th>
                 <th>Ville</th>
                 <th>Téléphone</th>
-                <th>Actions</th>
+                <th colspan="3" class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,13 +28,16 @@
             <tr>
                 <td>{{ supplier.id }}</td>
                 <td>{{ supplier.suppliersName }}</td>
-                <td>{{ supplier.suppliersAddress }}</td>
-                <td>{{ supplier.suppliersZipcode }}</td>
                 <td>{{ supplier.suppliersCity }}</td>
                 <td>{{ supplier.suppliersPhone }}</td>
                 <td>
-                    <a href="{{ path('admin_suppliers_show', {'id': supplier.id}) }}">Voir</a>
-                    <a href="{{ path('admin_suppliers_edit', {'id': supplier.id}) }}">Modifier</a>
+                    <a href="{{ path('admin_suppliers_show', {'id': supplier.id}) }}" class="btn btn-success">Détails</a>
+                </td>
+                <td>
+                    <a href="{{ path('admin_suppliers_edit', {'id': supplier.id}) }}" class="btn btn-info">Modifier</a>
+                </td>
+                <td>
+                    {{ include('admin/suppliers/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -39,5 +48,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_suppliers_new') }}">Ajouter un nouveau fournisseur</a>
-{% endblock %}
+    {% endblock %}
