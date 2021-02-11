@@ -1,0 +1,20 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modifier un Produit{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-6 col-sm-6">
+            <h1 class="text-info">Modifier ce produit</h1>
+        </div>
+        <div class="col-6 col-sm-6">
+            <a href="{{ path('admin_products_home') }}" class="btn btn-success mx-auto">Liste Produits</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            {{ include('admin/products/_form.html.twig', {'button_label': 'Modifier'}) }}
+        </div>
+    </div>
+
+{% endblock %}

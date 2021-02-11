@@ -3,9 +3,21 @@
 {% block title %}Modifier Fournisseur{% endblock %}
 
 {% block body %}
-    <h1>Modifier un Fournisseur</h1>
 
-    {{ include('admin/suppliers/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="row">
+        <div class="col-6 col-sm-6">
+            <h1 class="text-info">Modification d'un Fournisseur</h1>
+        </div>
+        <div class="col-6 col-sm-6">
+            <a href="{{ path('admin_suppliers_home') }}" class="btn btn-success mx-auto">Retour à la Liste Fournisseurs</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            {{ include('admin/suppliers/_form.html.twig', {'button_label': 'Modifier'}) }}
+        </div>
+    </div>
+
 
     <a href="{{ path('admin_suppliers_home') }}">Retour à la liste</a>
 

@@ -3,7 +3,14 @@
 {% block title %}Achats fournisseurs{% endblock %}
 
 {% block body %}
-    <h1 class="text-info">Liste des Achats</h1>
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <h1 class="text-info">Liste des Achats</h1>
+        </div>
+        <div class="col-12 col-sm-6">
+            <a href="{{ path('admin_purchases_new') }}" class="btn btn-danger mb-5">Ajouter un nouvel Achat</a>
+        </div>
+    </div>
 
     <table class="table">
         <thead>
@@ -38,5 +45,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_purchases_new') }}" class="btn btn-danger mb-5">Ajouter un nouvel Achat</a>
 {% endblock %}

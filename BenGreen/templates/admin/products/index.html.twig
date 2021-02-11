@@ -1,0 +1,53 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12 col-sm-9">
+            <h1 class="text-info">Liste des Produits</h1>
+        </div>
+        <div class="col-12 col-sm-3">
+            <a href="{{ path('admin_products_new') }}" class="btn btn-danger mb-5">Ajouter un nouveau Produit</a>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>Stock</th>
+            <th>Prix de vente</th>
+            <th  colspan="2" class="text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.productsName }}</td>
+                <td>{{ product.productsDescription }}</td>
+                <td>
+                    <img src="{{ product.productsPicture }}" alt="Image du produit" title="Image du produit" width="40%">
+                </td>
+                <td>{{ product.productsStock }}</td>
+                <td>{{ product.productsPrice }}</td>
+                <td>
+                    <a href="{{ path('admin_products_edit', {'id': product.id}) }}" class="btn btn-info">Modifier</a>
+                </td>
+                <td>
+                    {{ include('admin/products/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

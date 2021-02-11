@@ -3,8 +3,13 @@
 {% block title %}Espace Admin{% endblock %}
 
 {% block body %}
-<h1 class="text-info">Bienvenue dans votre Espace Admin</h1>
-<img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="page under construction" width="20%">
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <h1 class="text-info my-5">Espace Admin</h1>
+            <img class="img-responsive" src="{{ asset('images/under-construction.gif') }}" alt="page under construction" width="20%">
+        </div>
+    </div>
+
 
 {# Réfléchir aux liens réservés à admin, ex:  <a href="{{ path('products_new') }}">Ajouter un nouveau produit</a> #}
 
