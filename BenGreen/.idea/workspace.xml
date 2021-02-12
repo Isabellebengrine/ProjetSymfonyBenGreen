@@ -19,22 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SuppliersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SuppliersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/homepage/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/purchases/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/purchases/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/purchases/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/purchases/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/suppliers/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/suppliers/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/suppliers/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/suppliers/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/suppliers/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/suppliers/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/new.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -281,7 +266,7 @@
       <workItem from="1612728661542" duration="4988000" />
       <workItem from="1612788876772" duration="238000" />
       <workItem from="1612943059958" duration="16658000" />
-      <workItem from="1613067879450" duration="6389000" />
+      <workItem from="1613067879450" duration="7272000" />
     </task>
     <servers />
   </component>
