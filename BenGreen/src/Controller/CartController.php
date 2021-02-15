@@ -47,7 +47,7 @@ class CartController extends AbstractController
      */
     public function add($id, SessionInterface $session) {
 
-        //if no cart yet, I want an empty array :
+        //if no cart yet, I want an empty array as default value:
         $panier = $session->get('panier', []);
 
         //if cart not empty for this product, I want to add to the quantity of this product already in the cart : :
@@ -60,7 +60,7 @@ class CartController extends AbstractController
 
         //I save this new cart for this session :
         $session->set('panier', $panier);
-        //test : dd($session->get('panier')); //ok 07/12
+        //test : dd($session->get('panier')); //test ok 07/12/20
 
         return $this->redirectToRoute("cart_index");
     }
