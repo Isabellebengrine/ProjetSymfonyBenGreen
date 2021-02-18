@@ -17,6 +17,7 @@
                     <thead>
                     <tr>
                         <th>Produit</th>
+                        <th>Photo</th>
                         <th>Catégorie</th>
                         <th>Prix Unitaire</th>
                         <th>Quantité</th>
@@ -28,6 +29,7 @@
                     {% for item in items %}
                         <tr>
                             <td>{{ item.product.productsName }}</td>
+                            <td><img src="{{ item.product.productsPicture }}" class="rounded img-fluid" alt="Image du produit" title="Image du produit"></td>
                             <td>{{ item.product.rubrique }}</td>
                             <td>{{ item.product.productsPrice }}</td>
                             <td>{{ item.quantity }}</td>
@@ -45,7 +47,7 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td colspan="4" class="text-right text-success">Total HT de votre panier:</td>
+                        <td colspan="5" class="text-right text-success">Total HT de votre panier:</td>
                         <td class="text-success">{{ total }}</td>
                         <td></td>
                     </tr>

@@ -55,13 +55,25 @@ class Totalorder
     private $totalorderDeadline;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status = self::STATUS_CART;
+
+    /**
+     * An order that is in progress, not placed yet.
+     *
+     * @var string
+     */
+    const STATUS_CART = 'cart';
+
+    /**
      * @ORM\ManyToOne(targetEntity=Customers::class, inversedBy="totalorders")
      * @ORM\JoinColumn(nullable=false)
      */
     private $customers;
 
     /**
-     * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="totalorder_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="totalorder_id", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $orderdetails;
 

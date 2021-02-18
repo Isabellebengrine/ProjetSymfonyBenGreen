@@ -133,4 +133,17 @@ class Orderdetail
 
         return $this;
     }
+
+    /**
+     * Tests if the given item corresponds to the same order item.
+     * to avoid adding duplicate orderdetail items to the same totalorder
+     * @param Orderdetail $item
+     *
+     * @return bool
+     */
+    public function equals(Orderdetail $item): bool
+    {
+        return $this->getProducts()->getId() === $item->getProducts()->getId();
+    }
+
 }
