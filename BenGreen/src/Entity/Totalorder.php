@@ -241,6 +241,20 @@ class Totalorder
         return $this;
     }
 
+    /**
+     * Removes all items from the order.
+     *
+     * @return $this
+     */
+    public function removeOrderdetails(): self
+    {
+        foreach ($this->getOrderdetails() as $item) {
+            $this->removeOrderdetail($item);
+        }
+
+        return $this;
+    }
+
     public function getStatus(): ?string
     {
         return $this->status;
