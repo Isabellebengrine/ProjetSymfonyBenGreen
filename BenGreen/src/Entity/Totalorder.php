@@ -25,6 +25,11 @@ class Totalorder
     private $totalorderDate;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $totalorderBilladdress;
@@ -95,6 +100,19 @@ class Totalorder
     public function setTotalorderDate(\DateTimeInterface $totalorderDate): self
     {
         $this->totalorderDate = $totalorderDate;
+
+        return $this;
+    }
+
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -212,4 +230,17 @@ class Totalorder
 
         return $this;
     }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
 }
