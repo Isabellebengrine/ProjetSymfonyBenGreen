@@ -267,4 +267,21 @@ class Totalorder
         return $this;
     }
 
+    /**
+     * Calculates the order total.
+     *
+     * @return float
+     */
+    public function getTotal(): float
+    {
+        $total = 0;
+
+        foreach ($this->getOrderdetails() as $item) {
+            $total += $item->getTotal();
+        }
+
+        return $total;
+    }
+
+
 }

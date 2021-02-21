@@ -146,4 +146,15 @@ class Orderdetail
         return $this->getProducts()->getId() === $item->getProducts()->getId();
     }
 
+    /**
+     * Calculates the item total.
+     *
+     * @return float|int
+     */
+    public function getTotal(): float
+    {
+        return $this->getProducts()->getProductsPrice() * $this->getOrderdetailQuantity();
+    }
+
+
 }
