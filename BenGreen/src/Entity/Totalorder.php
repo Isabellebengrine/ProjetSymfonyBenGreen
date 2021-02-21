@@ -211,6 +211,16 @@ class Totalorder
 
     public function addOrderdetail(Orderdetail $orderdetail): self
     {
+        foreach ($this->getOrderdetails() as $existingItem) {
+            //if the item already exists, update the quantity :
+            if($existingItem->equals($orderdetail)) {
+                $existingItem->setOrderdetailQuantity(
+                    $existingItem->getOrderdetailQuantity() + $orderdetail->getOrderdetailQuantity()
+                );
+                return $this;
+            }
+        }
+
         if (!$this->orderdetails->contains($orderdetail)) {
             $this->orderdetails[] = $orderdetail;
             $orderdetail->setTotalorder($this);
