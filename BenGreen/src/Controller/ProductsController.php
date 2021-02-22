@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Data\SearchData;
 use App\Entity\Products;
 use App\Entity\Rubrique;
+use App\Form\AddToCartType;
 use App\Form\SearchForm;
 use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -72,8 +73,12 @@ class ProductsController extends AbstractController
      */
     public function show(Products $product): Response
     {
+        //adding the 'add to cart' option :
+        $form = $this->createForm(AddToCartType::class);
+
         return $this->render('products/show.html.twig', [
             'product' => $product,
+            'form' => $form->createView()
         ]);
     }
 }

@@ -38,7 +38,26 @@
 
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-6 col-sm-6">
+            {{ form_start(form, {'attr': {'class': 'mt-4 p-4'}}) }}
+            <div class="form-group">
+                {{ form_label(form.orderdetailQuantity) }}
+                {{ form_widget(form.orderdetailQuantity, {
+                    'attr': {
+                        'class': 'form-control ' ~ (form.orderdetailQuantity.vars.valid ? '' : 'is-invalid')
+                    }
+                }) }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.orderdetailQuantity) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-6">
+            {{ form_widget(form.add, {'attr': {'class': 'btn btn-info'}}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
     <div class="row">
         <div class="col-6 col-sm-6">
             <a href="{{ path('products_index') }}" class="btn btn-success">Retour au catalogue</a>
