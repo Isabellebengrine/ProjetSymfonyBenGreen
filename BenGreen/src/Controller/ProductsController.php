@@ -7,6 +7,7 @@ use App\Entity\Products;
 use App\Entity\Rubrique;
 use App\Form\AddToCartType;
 use App\Form\SearchForm;
+use App\Manager\CartManager;
 use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -68,13 +69,28 @@ class ProductsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="products_show", methods={"GET"}, requirements={"id"="\d+"}))
+     * @Route("/{id}", name="products_show", methods={"GET", "POST"}, requirements={"id"="\d+"}))
      * @return Response
      */
-    public function show(Products $product): Response
+    public function show(Products $product, Request $request, CartManager $cartManager): Response
     {
         //adding the 'add to cart' option :
         $form = $this->createForm(AddToCartType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $item = $form->getData();
+            $item->setProducts($product);
+            $cart = $cartManager->getCurrentCart();
+            $cart
+                ->addOrderdetail($item)
+                ->setUpdatedAt(new \DateTime());
+
+            $cartManager->save($cart);
+
+            return $this->redirectToRoute('products_show', ['id' => $product->getId()]);
+        }
 
         return $this->render('products/show.html.twig', [
             'product' => $product,
