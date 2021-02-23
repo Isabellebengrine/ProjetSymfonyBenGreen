@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Orderdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orderdetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AddToCartType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AddToCartType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Totalorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Totalorder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CartType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CartType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +274,8 @@
       <workItem from="1613412739165" duration="8557000" />
       <workItem from="1613505864633" duration="1457000" />
       <workItem from="1613679535972" duration="5454000" />
-      <workItem from="1613899237814" duration="16856000" />
+      <workItem from="1613899237814" duration="21646000" />
+      <workItem from="1614107002009" duration="1594000" />
     </task>
     <servers />
   </component>

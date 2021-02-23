@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Totalorder;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,7 +16,7 @@ class CartType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('items', CollectionType::class, [
+            ->add('orderdetails', CollectionType::class, [
                 'entry_type' => CartItemType::class
             ])
             ->add('totalorderBilladdress', TextType::class, [
@@ -23,11 +25,10 @@ class CartType extends AbstractType
             ->add('totalorderDeliveryaddress', TextType::class, [
                 'label' => 'Adresse de livraison'
             ])
-            ->add('totalorderDiscount')
+            //->add('totalorderDiscount')//see later if we add a discount field in cart page
             //->add('customers')
             ->add('save', SubmitType::class)
             ->add('clear', SubmitType::class);
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

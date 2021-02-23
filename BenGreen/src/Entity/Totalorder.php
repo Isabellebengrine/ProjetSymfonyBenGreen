@@ -78,7 +78,7 @@ class Totalorder
     private $customers;
 
     /**
-     * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="totalorder_id", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="totalorder", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $orderdetails;
 
