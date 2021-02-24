@@ -22,7 +22,7 @@ class CustomersType extends AbstractType
             ->add('customersName', TextType::class, [
                 'label' => 'Nom',
                 'attr' => [
-                    'placeholder' => 'Saisissez votre nom',
+                    'placeholder' => 'Prénom Nom',
                 ],
                 'constraints' => [
                     new Regex([

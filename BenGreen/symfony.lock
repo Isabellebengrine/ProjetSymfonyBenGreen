@@ -211,6 +211,9 @@
     "symfony/dependency-injection": {
         "version": "v4.4.15"
     },
+    "symfony/deprecation-contracts": {
+        "version": "v2.2.0"
+    },
     "symfony/doctrine-bridge": {
         "version": "v4.4.15"
     },
@@ -549,9 +552,6 @@
     },
     "twig/twig": {
         "version": "v3.1.0"
-    },
-    "webimpress/safe-writer": {
-        "version": "2.1.0"
     },
     "webmozart/assert": {
         "version": "1.9.1"

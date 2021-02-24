@@ -8,9 +8,11 @@ use App\Form\UserType;
 use App\Security\UserAuthenticator;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
@@ -20,7 +22,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator, MailerInterface $mailer): Response
     {
         //to build the form :
         $user = new User();
@@ -44,7 +46,20 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
+
+            // send an email to confirm the registration :
+            $mail = $user->getEmail();
+
+            $email = (new TemplatedEmail())
+                ->from('contact@bengreen.org')
+                ->to($mail)
+                ->subject('Confirmation d\'inscription')
+                ->htmlTemplate('emails/conf_inscription.html.twig')
+                ->context([
+                    'username' => $user->getFirstname(),
+                ])
+            ;
+            $mailer->send($email);
 
             // maybe set a "flash" success message for the user
             $this->addFlash('success', 'Votre compte a bien été enregistré.');

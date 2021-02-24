@@ -133,6 +133,11 @@ class MemberController extends AbstractController
             $user = $userRepo->find($this->getUser());
             $user->setCustomer($customer);
 
+            //to add first and last names in user table from customer's name:
+            $names = explode(' ', $customer->getCustomersName());
+            $user->setLastname($names[1]);
+            $user->setFirstname($names[0]);
+
             $entityManager->persist($customer);
             $entityManager->flush();
 

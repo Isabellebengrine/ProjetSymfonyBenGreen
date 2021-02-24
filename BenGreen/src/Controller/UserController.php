@@ -6,9 +6,11 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Security\LoginFormAuthenticator;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
@@ -35,7 +37,7 @@ class UserController extends AbstractController
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
      */
-    public function new(Request $request, UserPasswordEncoderInterface $encoder): Response
+    public function new(Request $request, UserPasswordEncoderInterface $encoder, MailerInterface $mailer): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -55,14 +57,21 @@ class UserController extends AbstractController
             $entityManager->flush();
 
             // do anything else you need here, like send an email
-/*
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
-*/
+
+            $mail = $user->getEmail();
+
+            $email = (new TemplatedEmail())
+                ->from('contact@village_green.org')
+                ->to($mail)
+                ->subject('Confirmation d\'inscription')
+                ->htmlTemplate('emails/conf_inscription.html.twig')
+                ->context([
+                    'username' => $user->getFirstname(),
+                ])
+            ;
+
+            $mailer->send($email);
+
             return $this->redirectToRoute('login');
         }
 
@@ -77,6 +86,9 @@ class UserController extends AbstractController
      */
     public function show(User $user): Response
     {
+        //to authorize only user to edit his own info not anyother user's info :
+        $this->denyAccessUnlessGranted('', $user, 'non non non ... action non autorisée!');
+
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
