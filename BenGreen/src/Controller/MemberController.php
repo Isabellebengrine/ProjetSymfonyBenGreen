@@ -104,14 +104,31 @@ class MemberController extends AbstractController
     }
 
     /**
-     * @Route("/customer/{id}/edit", name="member_customer_edit", methods={"GET","POST"}, requirements={"id"="\d+"})
+     * @Route("/customer/edit", name="member_customer_edit")
+     * @param Request $request
+     * @return Response
      */
-    public function editCustomerInfo(): Response
+    public function editCustomerInfo(Request $request): Response
     {
-        //to finish - 04/02/2021:
+            $customer =$this->getUser()->getCustomer();
+            $form = $this->createForm(CustomersType::class, $customer);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
+
+                //affiche msg de confirmation :
+                $this->addFlash(
+                    'success',
+                    'Compte client modifié avec succès !!'
+                );
+                return $this->redirectToRoute('member_customer');
+            }
         return $this->render('member/customer_edit.html.twig', [
-            'mainNavMember'=>true,
-            'title'=>'Espace Membre']);
+            'customer' => $customer,
+            'form' => $form->createView(),
+            'mainNavMember' => true,
+            'title' => 'Espace Membre']);
     }
 
     /**

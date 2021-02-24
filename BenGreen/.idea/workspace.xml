@@ -20,22 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/monProjet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/monProjet.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CustomersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CustomersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/member/customer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/customer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/customer_add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/customer_add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/member/customer_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/customer_edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/editaccount.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/editaccount.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +276,7 @@
       <workItem from="1613679535972" duration="5454000" />
       <workItem from="1613899237814" duration="21646000" />
       <workItem from="1614107002009" duration="2318000" />
-      <workItem from="1614161467592" duration="7876000" />
+      <workItem from="1614161467592" duration="10709000" />
     </task>
     <servers />
   </component>
