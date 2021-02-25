@@ -27,7 +27,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank()
-     * @Assert\Email()
+     * @Assert\Email(message = "L'adresse mail {{ value }} n'est pas une adresse valide, vérifiez votre saisie.")
      */
     private $email;
 
