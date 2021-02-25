@@ -6,28 +6,31 @@
             <h1 class="my-4 text-center text-info">Bienvenue chez BenGreen, <br>Le meilleur de la musique pour vous</h1>
             <p> Vous aimez la musique??? Nous aussi!</p>
             <p>Dans le plus grand magasin de musique d'Europe, vous trouverez tout ce dont vous avez besoin en termes d'instruments de musique, d'équipements studio, d'éclairage et de sonorisation. Nous proposons toutes les plus grandes marques, des alternatives abordables, ainsi qu'une tonne d'autres services gratuits pour les musiciens.</p>
-
             <h2 class="my-4 text-info">Nos catégories</h2>
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm d-flex">
             <section class="rubriques">
-
                 <div class="card-columns">
                     {% for rubrique in rubriques %}
-                        <div class="card bg-info text-white">
-                            <h3 class="card-header card-title"> {{ rubrique.rubriqueName }}</h3>
+                        <div class="card flex-fill bg-info text-white">
+                            <img class="card-img-top" src="{{ asset('images/' ~ rubrique.rubriquePicture) }}" alt="rubrique produits" title="rubrique produits">
                             <div class="card-body">
-                                <a href="{{ path('rubrique_show', {'id': rubrique.id}) }}" class="card-link text-white stretched-link">Consultez nos produits</a>
-                                <img class="img-responsive card-img-top" src="{{ asset('images/' ~ rubrique.rubriquePicture) }}" alt="rubrique produits" title="rubrique produits" width="100%">
+                                <p class="card-title"> {{ rubrique.rubriqueName }}</p>
+                                <a href="{{ path('rubrique_show', {'id': rubrique.id}) }}" class="card-link text-white stretched-link"></a>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             </section>
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12">
             <img class="img-responsive" src="{{ asset('images/bannierecentre.png') }}" alt="services" title="services" width="100%">
             <h2 class="text-info">Nos partenaires</h2>
             <img class="img-responsive" src="{{ asset('images/partenaires.png') }}" alt="partners" title="partners" width="100%">
-
         </div>
     </div>
 
