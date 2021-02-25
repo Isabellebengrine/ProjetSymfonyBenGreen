@@ -4,28 +4,34 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-sm-12">
-            <h2 class="my-5">Catégorie {{ rubrique.rubriqueName }} : </h2>
-
+        <div class="col-sm">
+            <h2 class="text-info my-5">Catégorie {{ rubrique.rubriqueName }} : </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm d-flex">
             <section class="sousrubriques">
-
                 <div class="card-columns">
-                     {% for sousrubrique in sousrubriques %}
-                        <div class="card bg-info text-white">
-                            <h3 class="card-header card-title"> {{ sousrubrique.rubriqueName }}</h3>
+                    {% for sousrubrique in sousrubriques %}
+                        <div class="card flex-fill bg-info text-white">
+                            <img class="card-img-top" src="{{ asset('images/' ~ sousrubrique.rubriquePicture) }}" alt="rubrique produits" title="rubrique produits" width="100%">
                             <div class="card-body">
-                                <a href="{{ path('productsbyrubrique_show', {'id': sousrubrique.id}) }}" class="card-link text-white stretched-link">Consultez nos produits</a>
-                                <img class="img-responsive card-img-top" src="{{ asset('images/' ~ sousrubrique.rubriquePicture) }}" alt="rubrique produits" title="rubrique produits" width="100%">
+                                <h3 class="card-title"> {{ sousrubrique.rubriqueName }}</h3>
+                                <a href="{{ path('productsbyrubrique_show', {'id': sousrubrique.id}) }}" class="card-link text-white stretched-link"></a>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             </section>
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
             <img class="img-responsive" src="{{ asset('images/bannierecentre.png') }}" alt="services" title="services" width="100%">
             <h2>Nos partenaires</h2>
             <img class="img-responsive" src="{{ asset('images/partenaires.png') }}" alt="services" title="services" width="100%">
-
         </div>
     </div>
+
+
 {% endblock %}
