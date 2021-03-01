@@ -26,43 +26,41 @@
                     <td>{{ product.productsDescription }}</td>
                 </tr>
                 <tr>
-                    <th>Picture</th>
+                    <th>Photo</th>
                     <td><img src="{{ product.productsPicture }}" alt="Photo" width="20%"></td>
                 </tr>
                 <tr>
                     <th>Prix</th>
-                    <td>{{ product.productsPrice }}</td>
+                    <td>{{ product.productsPrice }} €</td>
+                </tr>
+                {{ form_start(form) }}
+                <tr class="form-group">
+                    <th>{{ form_label(form.orderdetailQuantity) }}</th>
+                    <td>
+                        {{ form_widget(form.orderdetailQuantity, {
+                            'attr': {
+                                'class': 'form-control ' ~ (form.orderdetailQuantity.vars.valid ? '' : 'is-invalid')
+                            }
+                        }) }}
+                    </td>
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.orderdetailQuantity) }}
+                    </div>
                 </tr>
                 </tbody>
             </table>
 
         </div>
     </div>
-    <div class="row">
-        <div class="col-6 col-sm-6">
-            {{ form_start(form) }}
-            <div class="form-group">
-                {{ form_label(form.orderdetailQuantity) }}
-                {{ form_widget(form.orderdetailQuantity, {
-                    'attr': {
-                        'class': 'form-control ' ~ (form.orderdetailQuantity.vars.valid ? '' : 'is-invalid')
-                    }
-                }) }}
-                <div class="invalid-feedback">
-                    {{ form_errors(form.orderdetailQuantity) }}
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-sm-6">
-            {{ form_widget(form.add, {'attr': {'class': 'btn btn-info'}}) }}
-            {{ form_end(form) }}
-        </div>
-    </div>
+
     <div class="row">
         <div class="col-6 col-sm-6">
             <a href="{{ path('products_index') }}" class="btn btn-success">Retour au catalogue</a>
         </div>
         <div class="col-6 col-sm-6">
+            {{ form_widget(form.add, {'attr': {'class': 'btn btn-info'}}) }}
+            {{ form_end(form) }}
+    {# à enlever quand j'aurai fini : #}
             <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button">
                 <i class="fas fa-shopping-cart"></i>  Ajouter au panier
             </a>

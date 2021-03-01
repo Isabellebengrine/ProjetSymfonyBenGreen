@@ -268,7 +268,7 @@ class Totalorder
     }
 
     /**
-     * Calculates the order total.
+     * Calculates the order total using the getTotal() method from Orderdetail entity :
      *
      * @return float
      */

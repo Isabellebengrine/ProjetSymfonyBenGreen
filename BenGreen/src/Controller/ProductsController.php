@@ -89,7 +89,13 @@ class ProductsController extends AbstractController
 
             $cartManager->save($cart);
 
-            return $this->redirectToRoute('products_show', ['id' => $product->getId()]);
+            //affiche msg de confirmation :
+            $this->addFlash(
+                'success',
+                'Article ajouté au panier !!'
+            );
+
+            return $this->redirectToRoute('products_index');
         }
 
         return $this->render('products/show.html.twig', [
