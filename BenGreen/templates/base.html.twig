@@ -35,13 +35,15 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ path('cart') }}" class="nav-link text-success"><i class="fas fa-shopping-cart"></i>Panier</a>
+                        </li>
 
                         {% if is_granted('ROLE_USER') %}
                             <li class="nav-item ml-auto mr-auto {% if mainNavMember is defined %}active{% endif %}">
                                 <a class="nav-link text-success" href="{{path('member_home')}}"><i class="fas fa-sign-in-alt"></i> Espace Membre </a>
                             </li>
                         {% endif %}
-
 
                         {% if is_granted('ROLE_ADMIN') %}
                             <li class="nav-item ml-auto mr-auto {% if mainNavAdmin is defined %}active{% endif %}">

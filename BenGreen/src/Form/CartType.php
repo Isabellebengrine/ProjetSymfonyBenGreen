@@ -27,8 +27,12 @@ class CartType extends AbstractType
             ])
             //->add('totalorderDiscount')//see later if we add a discount field in cart page
             //->add('customers')
-            ->add('save', SubmitType::class)
-            ->add('clear', SubmitType::class);
+            ->add('save', SubmitType::class, [
+                'label' => 'Valider'
+            ])
+            ->add('clear', SubmitType::class, [
+                'label' => 'Effacer'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
