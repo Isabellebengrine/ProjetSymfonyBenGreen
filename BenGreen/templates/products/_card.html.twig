@@ -8,9 +8,8 @@
             <em class="text text-success">{{ product.rubrique }}</em>
         </div>
     </div>
-    <div class="card-footer d-flex flex-row justify-content-between">
-        <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-info card-link text-white" role="button">Voir</a>
-       {# à finir : <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button"><i class="fas fa-shopping-cart"></i></a> #}
+    <div class="card-footer">
+        <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-info card-link text-white" role="button">Détails</a>
     </div>
 
 </div>

@@ -60,10 +60,6 @@
         <div class="col-6 col-sm-6">
             {{ form_widget(form.add, {'attr': {'class': 'btn btn-info'}}) }}
             {{ form_end(form) }}
-    {# à enlever quand j'aurai fini : #}
-            <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button">
-                <i class="fas fa-shopping-cart"></i>  Ajouter au panier
-            </a>
         </div>
     </div>
 

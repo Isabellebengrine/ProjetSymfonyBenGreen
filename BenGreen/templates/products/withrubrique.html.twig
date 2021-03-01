@@ -18,8 +18,7 @@
                                 <img class="img-responsive card-img-top" src="{{ product.productsPicture }}" alt="image du produit" title="Produit" width="100%">
                             </div>
                             <div class="card-footer d-flex flex-row justify-content-between">
-                                <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button">Voir</a>
-                                <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-dark card-link text-white" role="button"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-dark card-link stretched-link text-white" role="button">Voir</a>
                             </div>
                         </div>
                     {% else %}
