@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Service\Cart\CartService;
+use App\Form\CartType;
+use App\Manager\CartManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,33 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class CartController extends AbstractController
 {
     /**
-     * @Route("/panier", name="cart_index")
+     * @Route("/cart", name="cart")
      */
-    public function index(CartService $cartService): Response
+    public function index(CartManager $cartManager): Response
     {
+        $cart = $cartManager->getCurrentCart();
+        $form= $this->createForm(CartType::class, $cart);
+
         return $this->render('cart/index.html.twig', [
             'controller_name' => 'CartController',
-            'items' => $cartService->getFullCart(),
-            'total' => $cartService->getTotal()
+            'cart' => $cart,
+            'form' => $form->createView()
         ]);
     }
-
-    /**
-     * @Route("/panier/add/{id}", name="cart_add")
-     */
-    public function add($id, CartService $cartService) {
-        $cartService->add($id);
-        return $this->redirectToRoute("cart_index");
-    }
-
-    /**
-     * @Route("/panier/remove/{id}", name="cart_remove")
-     */
-    public function remove($id, CartService $cartService) {
-
-        $cartService->remove($id);
-        //then I redirect to the cart index showing updated list of items in cart :
-        return $this->redirectToRoute("cart_index");
-    }
-
 }
