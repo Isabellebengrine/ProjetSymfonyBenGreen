@@ -1,58 +1,64 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}Totalorder{% endblock %}
+{% block title %}Commande{% endblock %}
 
 {% block body %}
-    <h1>Totalorder</h1>
+    <h1 class="text-info">Commande : détails</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>N°</th>
                 <td>{{ totalorder.id }}</td>
             </tr>
             <tr>
-                <th>TotalorderDate</th>
+                <th>Date</th>
                 <td>{{ totalorder.totalorderDate ? totalorder.totalorderDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>UpdatedAt</th>
+                <th>Modifiée le</th>
                 <td>{{ totalorder.updatedAt ? totalorder.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>TotalorderBilladdress</th>
+                <th>Adresse de facturation</th>
                 <td>{{ totalorder.totalorderBilladdress }}</td>
             </tr>
             <tr>
-                <th>TotalorderDeliveryaddress</th>
+                <th>Adresse de livraison</th>
                 <td>{{ totalorder.totalorderDeliveryaddress }}</td>
             </tr>
             <tr>
-                <th>TotalorderDiscount</th>
+                <th>Discount</th>
                 <td>{{ totalorder.totalorderDiscount }}</td>
             </tr>
             <tr>
-                <th>TotalorderInvoicenb</th>
+                <th>N° Facture</th>
                 <td>{{ totalorder.totalorderInvoicenb }}</td>
             </tr>
             <tr>
-                <th>TotalorderInvoicedate</th>
+                <th>Date Facture</th>
                 <td>{{ totalorder.totalorderInvoicedate ? totalorder.totalorderInvoicedate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>TotalorderDeadline</th>
+                <th>Echéance</th>
                 <td>{{ totalorder.totalorderDeadline ? totalorder.totalorderDeadline|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Status</th>
+                <th>Statut</th>
                 <td>{{ totalorder.status }}</td>
             </tr>
         </tbody>
     </table>
+    <div class="row">
+        <div class="col-4 col-sm-4">
+            <a href="{{ path('admin_totalorders_home') }}" class="btn btn-success mx-auto">Retour à la liste</a>
+        </div>
+        <div class="col-4 col-sm-4">
+            <a href="{{ path('admin_totalorders_edit', {'id': totalorder.id}) }}" class="btn btn-info mx-auto">Modifier</a>
+        </div>
+        <div class="col-4 col-sm-4">
+            {{ include('admin/totalorder/_delete_form.html.twig') }}
+        </div>
+    </div>
 
-    <a href="{{ path('totalorder_index') }}">back to list</a>
-
-    <a href="{{ path('totalorder_edit', {'id': totalorder.id}) }}">edit</a>
-
-    {{ include('totalorder/_delete_form.html.twig') }}
 {% endblock %}

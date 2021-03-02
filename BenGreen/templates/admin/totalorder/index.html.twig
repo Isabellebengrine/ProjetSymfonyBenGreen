@@ -1,0 +1,56 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Commandes{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <h1 class="text-info">Commandes client</h1>
+        </div>
+        <div class="col-12 col-sm-6">
+            <a href="{{ path('admin_totalorders_new') }}" class="btn btn-danger">Ajouter une nouvelle commande</a>
+        </div>
+    </div>
+
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Date</th>
+             {# voir si utile:    <th>Modifiée le</th> #}
+                <th>N° Facture</th>
+                <th>Date Facture</th>
+                <th>Statut</th>
+                <th colspan="3" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for totalorder in totalorders %}
+            <tr>
+                <td>{{ totalorder.id }}</td>
+                <td>{{ totalorder.totalorderDate ? totalorder.totalorderDate|date('Y-m-d') : '' }}</td>
+           {#      <td>{{ totalorder.updatedAt ? totalorder.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                <td>{{ totalorder.totalorderInvoicenb }}</td>
+                <td>{{ totalorder.totalorderInvoicedate ? totalorder.totalorderInvoicedate|date('Y-m-d') : '' }}</td>
+                <td>{{ totalorder.status }}</td>
+                <td>
+                    <a href="{{ path('admin_totalorders_show', {'id': totalorder.id}) }}" class="btn btn-success">Détails</a>
+                </td>
+                <td>
+                    <a href="{{ path('admin_totalorders_edit', {'id': totalorder.id}) }}" class="btn btn-info">Modifier</a>
+                </td>
+                <td>
+                    {{ include('admin/totalorder/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune commande trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('totalorder_new') }}">Create new</a>
+{% endblock %}

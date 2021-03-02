@@ -1,0 +1,21 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modifier Commande{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-6 col-sm-6">
+            <h1 class="text-info">Modifier cette commande</h1>
+        </div>
+        <div class="col-6 col-sm-6">
+            <a href="{{ path('admin_totalorders_home') }}" class="btn btn-success mx-auto">Retour aux Commandes clients</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            {{ include('admin/totalorder/_form.html.twig', {'button_label': 'Modifier'}) }}
+        </div>
+    </div>
+
+{% endblock %}

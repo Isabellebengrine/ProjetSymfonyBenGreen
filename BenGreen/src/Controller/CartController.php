@@ -24,7 +24,7 @@ class CartController extends AbstractController
     public function index(OrderdetailRepository $orderdetailRepository, CartManager $cartManager, Request $request): Response
     {
         $cart = $cartManager->getCurrentCart();
-        $form= $this->createForm(TotalorderType::class, $cart);
+        $form= $this->createForm(CartType::class, $cart);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

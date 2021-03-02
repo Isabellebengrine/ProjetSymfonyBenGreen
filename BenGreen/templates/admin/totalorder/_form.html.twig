@@ -1,0 +1,37 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.totalorderDate) }}
+    </div>
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.updatedAt) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.totalorderInvoicenb) }}
+    </div>
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.totalorderInvoicedate) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.totalorderDeadline) }}
+    </div>
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.totalorderDiscount) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.status) }}
+    </div>
+    <div class="col-12 col-sm-6">
+        {{ form_row(form.customers) }}
+    </div>
+</div>
+
+    {{ form_widget(form) }}
+    <button class="btn btn-info">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

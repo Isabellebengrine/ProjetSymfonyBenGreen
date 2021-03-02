@@ -283,5 +283,9 @@ class Totalorder
         return $total;
     }
 
+    public function __toString()
+    {
+        return "Commande n° " . $this->id;
+    }
 
 }
