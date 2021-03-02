@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Totalorder{% endblock %}
+
+{% block body %}
+    <h1>Edit Totalorder</h1>
+
+    {{ include('totalorder/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('totalorder_index') }}">back to list</a>
+
+    {{ include('totalorder/_delete_form.html.twig') }}
+{% endblock %}

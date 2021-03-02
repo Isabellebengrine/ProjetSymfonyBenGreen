@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Totalorder{% endblock %}
+
+{% block body %}
+    <h1>Totalorder</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ totalorder.id }}</td>
+            </tr>
+            <tr>
+                <th>TotalorderDate</th>
+                <td>{{ totalorder.totalorderDate ? totalorder.totalorderDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ totalorder.updatedAt ? totalorder.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>TotalorderBilladdress</th>
+                <td>{{ totalorder.totalorderBilladdress }}</td>
+            </tr>
+            <tr>
+                <th>TotalorderDeliveryaddress</th>
+                <td>{{ totalorder.totalorderDeliveryaddress }}</td>
+            </tr>
+            <tr>
+                <th>TotalorderDiscount</th>
+                <td>{{ totalorder.totalorderDiscount }}</td>
+            </tr>
+            <tr>
+                <th>TotalorderInvoicenb</th>
+                <td>{{ totalorder.totalorderInvoicenb }}</td>
+            </tr>
+            <tr>
+                <th>TotalorderInvoicedate</th>
+                <td>{{ totalorder.totalorderInvoicedate ? totalorder.totalorderInvoicedate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>TotalorderDeadline</th>
+                <td>{{ totalorder.totalorderDeadline ? totalorder.totalorderDeadline|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ totalorder.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('totalorder_index') }}">back to list</a>
+
+    <a href="{{ path('totalorder_edit', {'id': totalorder.id}) }}">edit</a>
+
+    {{ include('totalorder/_delete_form.html.twig') }}
+{% endblock %}
