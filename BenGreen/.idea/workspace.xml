@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Totalorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Totalorder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/CartItemType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CartItemType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CartType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CartType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Cart/CartService.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cart/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -288,6 +286,8 @@
       <workItem from="1614670286388" duration="30555000" />
       <workItem from="1614718131260" duration="4173000" />
       <workItem from="1614756194800" duration="2657000" />
+      <workItem from="1614765216384" duration="202000" />
+      <workItem from="1614778004651" duration="4246000" />
     </task>
     <servers />
   </component>
