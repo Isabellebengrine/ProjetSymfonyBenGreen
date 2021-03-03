@@ -18,6 +18,7 @@ class CartItemType extends AbstractType
             ->add('orderdetailQuantity', NumberType::class, [
                 'label' => "Quantité"
             ])
+            ->add('remove', SubmitType::class)
         ;
     }
 

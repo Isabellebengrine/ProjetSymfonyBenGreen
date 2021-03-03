@@ -13,26 +13,42 @@
                 <div class="card">
                     <div class="card-header bg-dark text-success d-flex">
                         <h5>Articles</h5>
+                        <div class="ml-auto">
+                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-warning'}}) }}
+                            {{ form_widget(form.clear, {'attr': {'class': 'btn btn-light'}}) }}
+                        </div>
                     </div>
                     <ul class="list-group list-group-flush">
-                        {% for orderdetail in orderdetails %}
+
+                        {# test 02/03 :   {% for orderdetail in orderdetails %}#}
+                        {% for orderdetail in form.orderdetails %}
                             <li class="list-group-item d-flex">
                                 <div class="flex-fill mr-2">
-                                    <img src="{{ orderdetail.products.productsPicture }}" width="64" alt="Product image">
+                                    <img src="{{ orderdetail.vars.data.products.productsPicture }}" width="64" alt="Product image">
                                 </div>
                                 <div class="flex-fill mr-2">
-                                    <h5 class="mt-0 mb-0 text-white">{{ orderdetail.products.productsName }}</h5>
-                                    <small>{{ orderdetail.products.productsDescription }}</small>
+                                    <h5 class="mt-0 mb-0 text-white">{{ orderdetail.vars.data.products.productsName }}</h5>
+                                    <small>{{ orderdetail.vars.data.products.productsDescription }}</small>
                                     <div class="form-inline mt-2">
                                         <div class="form-group mb-0 mr-2 justify-content-between">
-                                            <p>Quantité : {{ orderdetail.orderdetailQuantity }}</p>
+                            {# test 02/03 -                <p>Quantité : {{ orderdetail.orderdetailQuantity }}</p>
                                             <p><a href="{{ path('orderdetail_edit', {'id': orderdetail.id}) }}" role="button" class="btn btn-sm btn-warning mx-5">Modifier</a></p>
+                            #}
+                                            {{ form_widget(orderdetail.orderdetailQuantity, {
+                                                'attr': {
+                                                    'class': 'form-control form-control-sm ' ~ (orderdetail.orderdetailQuantity.vars.valid ? '' : 'is-invalid')
+                                                }
+                                            }) }}
+                                            <div class="invalid-feedback">
+                                                {{ form_errors(orderdetail.orderdetailQuantity) }}
+                                            </div>
                                         </div>
+                                        {{ form_widget(orderdetail.remove, {'attr': {'class': 'btn btn-dark btn-sm'}}) }}
                                     </div>
                                 </div>
                                 <div class="flex-fill mr-2 text-right">
-                                    <b>{{ orderdetail.products.productsPrice }} €</b>
-                                    <p>{{ include('orderdetail/_delete_form.html.twig') }}</p>
+                                    <b>{{ orderdetail.vars.data.products.productsPrice }} €</b>
+                        {# test 02/03 :             <p>{{ include('orderdetail/_delete_form.html.twig') }}</p> #}
                                 </div>
                             </li>
                         {% endfor %}

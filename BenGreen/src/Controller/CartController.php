@@ -21,7 +21,7 @@ class CartController extends AbstractController
     /**
      * @Route("/", name="cart_index", methods={"GET", "POST"})
      */
-    public function index(OrderdetailRepository $orderdetailRepository, CartManager $cartManager, Request $request): Response
+    public function index(CartManager $cartManager, Request $request): Response
     {
         $cart = $cartManager->getCurrentCart();
         $form= $this->createForm(CartType::class, $cart);
@@ -34,10 +34,9 @@ class CartController extends AbstractController
             return $this->redirectToRoute('cart_index');
         }
         return $this->render('cart/index.html.twig', [
-            'controller_name' => 'OrderdetailController',
+            'controller_name' => 'CartController',
             'cart' => $cart,
-            'form' => $form->createView(),
-            'orderdetails' => $orderdetailRepository->findByTotalorder($cart)
+            'form' => $form->createView()
         ]);
     }
 

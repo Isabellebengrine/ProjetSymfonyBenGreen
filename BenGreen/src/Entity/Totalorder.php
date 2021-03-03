@@ -20,7 +20,7 @@ class Totalorder
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $totalorderDate;
 
@@ -55,7 +55,7 @@ class Totalorder
     private $totalorderInvoicedate;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $totalorderDeadline;
 
@@ -248,8 +248,8 @@ class Totalorder
      */
     public function removeOrderdetails(): self
     {
-        foreach ($this->getOrderdetails() as $item) {
-            $this->removeOrderdetail($item);
+        foreach ($this->getOrderdetails() as $orderdetail) {
+            $this->removeOrderdetail($orderdetail);
         }
 
         return $this;

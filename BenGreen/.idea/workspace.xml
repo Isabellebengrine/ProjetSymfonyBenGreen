@@ -22,17 +22,10 @@
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Totalorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Totalorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/OrderdetailType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OrderdetailType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/TotalorderType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TotalorderType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/totalorder/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/totalorder/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/totalorder/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/totalorder/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/totalorder/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/totalorder/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/totalorder/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/totalorder/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/totalorder/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/totalorder/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/totalorder/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/totalorder/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CartItemType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CartItemType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CartType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CartType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +168,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/member" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form/EventListener" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -189,6 +182,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen\src\Form\EventListener" />
       <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen\templates\member" />
       <recent name="C:\Users\AATAR\Desktop\projet symfony perso\BenGreen\src\Form" />
       <recent name="C:\Users\AATAR\Desktop\CDA20049_1\monProjet\migrations" />
@@ -291,7 +285,9 @@
       <workItem from="1614290323369" duration="1276000" />
       <workItem from="1614587273073" duration="1814000" />
       <workItem from="1614610392338" duration="14573000" />
-      <workItem from="1614670286388" duration="29110000" />
+      <workItem from="1614670286388" duration="30555000" />
+      <workItem from="1614718131260" duration="4173000" />
+      <workItem from="1614756194800" duration="2657000" />
     </task>
     <servers />
   </component>
