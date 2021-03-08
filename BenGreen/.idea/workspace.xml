@@ -21,9 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CartItemType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CartItemType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Cart/CartService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cart/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pnp.js" beforeDir="false" afterPath="$PROJECT_DIR$/.pnp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.yarn/cache/klona-npm-1.1.2-4685cb8e4a-357ff7d43c.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.yarn/cache/sass-loader-npm-9.0.3-a2f9304da9-5ce94bb670.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.yarn/install-state.gz" beforeDir="false" afterPath="$PROJECT_DIR$/.yarn/install-state.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/orders.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/orders.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +170,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form/EventListener" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -180,6 +184,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen" />
       <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen\src\Form\EventListener" />
       <recent name="C:\Users\isabelle.bengrine\Desktop\Isa\ProjetSymfonyBenGreen\BenGreen\templates\member" />
       <recent name="C:\Users\AATAR\Desktop\projet symfony perso\BenGreen\src\Form" />
@@ -287,7 +292,15 @@
       <workItem from="1614718131260" duration="4173000" />
       <workItem from="1614756194800" duration="2657000" />
       <workItem from="1614765216384" duration="202000" />
-      <workItem from="1614778004651" duration="4246000" />
+      <workItem from="1614778004651" duration="5178000" />
+      <workItem from="1614890416458" duration="709000" />
+      <workItem from="1614891607905" duration="3205000" />
+      <workItem from="1614931262851" duration="106000" />
+      <workItem from="1615122717811" duration="2619000" />
+      <workItem from="1615132931781" duration="1228000" />
+      <workItem from="1615189342135" duration="28000" />
+      <workItem from="1615189399987" duration="281000" />
+      <workItem from="1615233377650" duration="3146000" />
     </task>
     <servers />
   </component>
