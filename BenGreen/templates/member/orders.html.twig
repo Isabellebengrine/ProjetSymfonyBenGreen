@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    {% if(app.user.customer) %}
+    {% if(totalorders) %}
         <div class="row">
             <div class="col-12 col-sm-12">
                 <h1 class="text-info text-center">{{ totalorders | length }} commandes dans votre historique</h1>
@@ -40,17 +40,11 @@
 
         <div class="row">
             <div class="col-12 col-sm-12">
-                <p>Vous n'avez pas encore commandé!</p>
-                {# voir si lien vers catalogue ou vers panier ? #}
-                <button class="btn btn-info">Retourner au catalogue</button>
+                <p class="my-5">Vous n'avez pas encore commandé!</p>
+                <a class="nav-link btn btn-success" href="{{ path('products_index') }}">Retourner au catalogue</a>
             </div>
         </div>
 
-
     {% endif %}
 
-{% endblock %}
-
-
-{% block javascripts %}
 {% endblock %}
