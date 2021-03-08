@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Orderdetail;
 use App\Entity\Totalorder;
 use App\Form\CartType;
+use App\Form\CartValidationType;
 use App\Form\TotalorderType;
 use App\Manager\CartManager;
 use App\Repository\OrderdetailRepository;
@@ -33,11 +34,44 @@ class CartController extends AbstractController
         //if there is no more orderdetails, the cart is empty but if something is now added to cart, it will get the new item(s):
         if ($form->isSubmitted() && $form->isValid()) {
             $cart->setUpdatedAt(new \DateTime());
+            $items = $cart->getOrderdetails();
+            foreach($items as $item){
+                $price = $item->setOrderdetailPrice($item->getProducts()->getProductsPrice());
+            }
             $cartManager->save($cart);
 
             return $this->redirectToRoute('cart_index');
         }
         return $this->render('cart/index.html.twig', [
+            'controller_name' => 'CartController',
+            'cart' => $cart,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/validation", name="cart_validation", methods={"GET", "POST"})
+     */
+    public function validateCart(CartManager $cartManager, Request $request): Response
+    {
+        $cart = $cartManager->getCurrentCart();
+        $cart->setUpdatedAt(new \DateTime());
+        $items = $cart->getOrderdetails();
+        foreach($items as $item){
+            $price = $item->setOrderdetailPrice($item->getProducts()->getProductsPrice());
+        }
+        $cartManager->save($cart);
+        $form = $this->createForm(CartValidationType::class, $cart);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $cart->setStatus('commande');
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('cart_index');
+        }
+
+        return $this->render('cart/validation.html.twig', [
             'controller_name' => 'CartController',
             'cart' => $cart,
             'form' => $form->createView()

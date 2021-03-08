@@ -21,13 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pnp.js" beforeDir="false" afterPath="$PROJECT_DIR$/.pnp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.yarn/cache/klona-npm-1.1.2-4685cb8e4a-357ff7d43c.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.yarn/cache/sass-loader-npm-9.0.3-a2f9304da9-5ce94bb670.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.yarn/install-state.gz" beforeDir="false" afterPath="$PROJECT_DIR$/.yarn/install-state.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/orders.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/orders.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Orderdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orderdetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,7 +296,7 @@
       <workItem from="1615132931781" duration="1228000" />
       <workItem from="1615189342135" duration="28000" />
       <workItem from="1615189399987" duration="281000" />
-      <workItem from="1615233377650" duration="3146000" />
+      <workItem from="1615233377650" duration="8120000" />
     </task>
     <servers />
   </component>

@@ -159,5 +159,8 @@ class Orderdetail
         return $this->getProducts()->getProductsPrice() * $this->getOrderdetailQuantity();
     }
 
-
+    public function __toString()
+    {
+        return "Article: " . $this->getProducts()." - Quantité: " . $this->getOrderdetailQuantity() . " - Prix: " . $this->getOrderdetailPrice() . "€";
+    }
 }
