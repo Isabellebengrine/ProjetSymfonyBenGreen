@@ -5,6 +5,13 @@
 {% block body %}
 <div class="container mt-4">
     <h1 class="text-info">Votre panier</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success my-3">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     {% if cart.orderdetails.count > 0 %}
         <div class="row mt-4">
             <!-- List of items -->
@@ -63,7 +70,17 @@
                         </li>
                     </ul>
                     <div class="card-body">
-                        <a href="{{ path('cart_validation') }}" class="btn btn-info w-100">Valider</a>
+                        {% if app.user %}
+                            {% if app.user.customer %}
+                                <a href="{{ path('cart_validation') }}" class="btn btn-info w-100">Valider</a>
+                            {% else %}
+                                <a href="{{ path('member_customer_add') }}" class="btn btn-info w-100">Créer votre compte client pour valider</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{{ path('login') }}" class="btn btn-info w-100">Se connecter pour valider le panier</a>
+                            <p class="mt-4 text-warning"><strong>Pas encore inscrit? </strong></p>
+                            <a href="{{ path('app_register') }}" class="btn btn-info w-100">S'inscrire</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

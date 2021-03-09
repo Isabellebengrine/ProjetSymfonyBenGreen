@@ -9,9 +9,11 @@ use App\Form\CartValidationType;
 use App\Form\TotalorderType;
 use App\Manager\CartManager;
 use App\Repository\OrderdetailRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -52,7 +54,7 @@ class CartController extends AbstractController
     /**
      * @Route("/validation", name="cart_validation", methods={"GET", "POST"})
      */
-    public function validateCart(CartManager $cartManager, Request $request): Response
+    public function validateCart(CartManager $cartManager, Request $request, MailerInterface $mailer): Response
     {
         $cart = $cartManager->getCurrentCart();
         $cart->setUpdatedAt(new \DateTime());
@@ -67,6 +69,28 @@ class CartController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $cart->setStatus('commande');
             $this->getDoctrine()->getManager()->flush();
+
+            // send an email to confirm the registration :
+            $mail = $this->getUser()->getEmail();
+
+            $email = (new TemplatedEmail())
+                ->from('contact@bengreen.org')
+                ->to($mail)
+                ->subject('Confirmation de commande')
+                ->htmlTemplate('emails/conf_commande.html.twig')
+                ->context([
+                    'username' => $this->getUser()->getFirstname(),
+                    'commande' => $cart,
+                    'articles' => $cart->getOrderdetails()
+                ])
+            ;
+            $mailer->send($email);
+
+            //affiche msg de confirmation :
+            $this->addFlash(
+                'success',
+                'Votre commande a bien été enregistrée. Vous allez recevoir un e-mail de confirmation. Nous vous remercions de votre confiance!'
+            );
 
             return $this->redirectToRoute('cart_index');
         }

@@ -1,12 +1,8 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Commande{% endblock %}
-
-{% block body %}
 <div class="container">
     <div class="row">
         <div class="col-12 col-sm-12">
-            <h2 class="text-success">Récapitulatif de votre commande :</h2>
+            <h1>Bonjour, {{ username }} !</h1>
+            <h2 class="text-success">Confirmation de votre commande  n° {{ cart.id }}</h2>
         </div>
     </div>
     <div class="row">
@@ -16,7 +12,7 @@
                     <h5>Articles</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    {% for orderdetail in cart.orderdetails %}
+                    {% for article in articles %}
                         <li class="list-group-item d-flex">
                             <div class="flex-fill mr-2">
                                 <img src="{{ orderdetail.products.productsPicture }}" width="64" alt="Product image">
@@ -36,29 +32,9 @@
             </div>
         </div>
     </div>
-
-    {{ form_start(form) }}
-
     <div class="row">
-        <div class="col-12 col-sm-12">
-            <p class="text-info mt-5">Vérifiez que vos adresses sont correctes :</p>
-            {{ form_row(form.totalorderBilladdress) }}
-        </div>
-        <div class="col-12 col-sm-12">
-            {{ form_row(form.totalorderDeliveryaddress) }}
+        <div class="col">
+            <p>Merci de compter parmi nos fidèles clients! Nous vous enverrons un mail dès que la livraison sera en chemin.</p>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-12 col-sm-12">
-            {{ form_row(form.customers) }}
-        </div>
-    </div>
-
-    {{ form_widget(form) }}
-    <button class="btn btn-info">{{ button_label|default('Enregistrer') }}</button>
-    {{ form_end(form) }}
-
 </div>
-
-{% endblock %}

@@ -17,4 +17,8 @@
 
         <button type="submit" class="btn btn-info">Inscription !</button>
     {{ form_end(registrationForm) }}
+
+    <p class="text-warning mt-5"><b>Déjà inscrit? </b></p>
+    <a href="{{ path('login') }}" class="btn btn-info w-100">Se connecter</a>
+
 {% endblock %}

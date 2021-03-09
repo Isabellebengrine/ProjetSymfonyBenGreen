@@ -22,8 +22,11 @@
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Orderdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orderdetail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cart/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart/validation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/validation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +299,8 @@
       <workItem from="1615132931781" duration="1228000" />
       <workItem from="1615189342135" duration="28000" />
       <workItem from="1615189399987" duration="281000" />
-      <workItem from="1615233377650" duration="8120000" />
+      <workItem from="1615233377650" duration="8542000" />
+      <workItem from="1615272788164" duration="3802000" />
     </task>
     <servers />
   </component>
