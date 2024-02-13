@@ -11,8 +11,7 @@ contactez-moi via Linkedin, merci!
 Février 2021: corrigé Datafixtures 
 
 **************************************************************
-Pour les débutants comme moi:
-Si vous clônez ce projet: Instructions
+Instructions
 **************************************************************
 Pour installer les dépendances manquantes:
 composer install
